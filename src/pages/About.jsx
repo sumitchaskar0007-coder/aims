@@ -110,7 +110,7 @@ export default function About() {
               <img
                 src="/assets/owner.jpeg"
                 alt="Prin. Dr. Sudhakarrao Jadhavar"
-                className="mx-auto h-60 w-60 rounded-lg object-cover border border-gray-200"
+                className="mx-auto h-72 w-full max-w-64 rounded-lg border border-gray-200 bg-gray-50 object-contain p-3"
               />
               <h3 className="mt-5 text-2xl font-bold text-gray-900">Prin. Dr. Sudhakarrao Jadhavar</h3>
               <p className="mt-1 text-sm font-semibold text-primary">Founder President & Chairman</p>
@@ -144,7 +144,7 @@ export default function About() {
                 <img
                   src="/assets/Shardul_jadhavar.jpeg"
                   alt="Adv. Shardul Sudhakarrao Jadhavar"
-                  className="mx-auto h-60 w-60 rounded-lg object-cover border border-gray-200"
+                  className="mx-auto h-72 w-full max-w-64 rounded-lg border border-gray-200 bg-gray-50 object-contain p-3"
                 />
                 <h3 className="mt-5 text-2xl font-bold text-gray-900">Adv. Shardul S. Jadhavar</h3>
                 <p className="mt-1 text-sm font-semibold text-primary">Vice President</p>

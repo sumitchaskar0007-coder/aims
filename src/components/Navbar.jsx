@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 const NewsTicker = () => {
   const news = [
-    "Admissions Open for 2026-28",
+    "Admissions Open for 2026-27",
     "MBA and MCA admissions guidance available at AIMS Pune",
   ];
 
@@ -30,7 +30,7 @@ const NewsTicker = () => {
 };
 
 const aboutMenu = [
-  { label: "The Jadhavar", path: "/about/the-jadhavar" },
+  { label: "Jadhavar Group Of Institute", path: "/about/the-jadhavar" },
   { label: "Vision & Mission", path: "/about/vision-mission" },
   { label: "Founder President & Chairman", path: "/about/founder-president-chairman" },
   { label: "Vice President", path: "/about/vice-president" },
@@ -62,26 +62,40 @@ const moreMenu = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showContactPopup, setShowContactPopup] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => setIsOpen(false), [location]);
+  const navRef = useRef(null);
 
   useEffect(() => {
-    if (!showContactPopup) return undefined;
-    const timer = setTimeout(() => setShowContactPopup(false), 2600);
-    return () => clearTimeout(timer);
-  }, [showContactPopup]);
+    setIsOpen(false);
+    setOpenDropdown(null);
+  }, [location]);
+
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleDocumentClick);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleDocumentClick);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
 
   const isActive = (path) => {
     if (path === "/") return location.pathname === "/";
     return location.pathname === path || location.pathname.startsWith(`${path}/`);
-  };
-
-  const handleApply = () => {
-    setShowContactPopup(true);
-    navigate("/contact");
   };
 
   const renderLink = (item, className = "navBtn") =>
@@ -96,7 +110,7 @@ const Navbar = () => {
     );
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white shadow-md border-b">
+    <nav ref={navRef} className="fixed top-0 w-full z-50 bg-white shadow-md border-b">
       <NewsTicker />
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3">
@@ -137,40 +151,53 @@ const Navbar = () => {
         <div className="hidden lg:flex flex-wrap justify-center items-center gap-2 mt-4">
           {renderLink({ label: "Home", path: "/" })}
 
-          <div className="relative group">
+          <div className="relative">
             <button
               type="button"
+              onClick={() => setOpenDropdown(openDropdown === "about" ? null : "about")}
+              aria-expanded={openDropdown === "about"}
+              aria-haspopup="true"
               className={`navBtn ${location.pathname.startsWith("/about") ? "activeNav" : ""}`}
             >
-              About
+              About Us
             </button>
-            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md w-72 py-2 border mt-1">
+            {openDropdown === "about" && (
+            <div className="absolute left-0 top-full z-50 mt-1 w-72 rounded-md border bg-white py-2 shadow-lg">
               {aboutMenu.map((item) => (
-                <Link key={item.path} to={item.path} className="dropItem">
+                <Link key={item.path} to={item.path} className="dropItem" onClick={() => setOpenDropdown(null)}>
                   {item.label}
                 </Link>
               ))}
             </div>
+            )}
           </div>
 
           {mainMenu.map((item) => (
             <span key={item.path}>{renderLink(item)}</span>
           ))}
 
-          <div className="relative group">
-            <button className="navBtn" type="button">
+          <div className="relative">
+            <button
+              className="navBtn"
+              type="button"
+              onClick={() => setOpenDropdown(openDropdown === "more" ? null : "more")}
+              aria-expanded={openDropdown === "more"}
+              aria-haspopup="true"
+            >
               More
             </button>
-            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md w-56 py-2 border mt-1">
+            {openDropdown === "more" && (
+            <div className="absolute left-0 top-full z-50 mt-1 w-56 rounded-md border bg-white py-2 shadow-lg">
               {moreMenu.map((item) => (
-                <span key={item.path}>{renderLink(item, "dropItem")}</span>
+                <span key={item.path} onClick={() => setOpenDropdown(null)}>{renderLink(item, "dropItem")}</span>
               ))}
             </div>
+            )}
           </div>
 
-          <button onClick={handleApply} className="contactBtn" type="button">
+          <Link to="/contact" className="contactBtn">
             Apply Now
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -205,23 +232,9 @@ const Navbar = () => {
                 </Link>
               ),
             )}
-            <button onClick={handleApply} className="mobileContact" type="button">
+            <Link to="/contact" className="mobileContact">
               Apply Now
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {showContactPopup && (
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            className="fixed top-28 right-4 z-[60] max-w-xs rounded-lg border border-green-200 bg-white p-4 shadow-xl"
-          >
-            <p className="font-bold text-gray-900">Apply Now page opened</p>
-            <p className="text-sm text-gray-600">Submit your admission enquiry for MBA or MCA.</p>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
