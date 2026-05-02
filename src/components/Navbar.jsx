@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const NewsTicker = () => {
   const news = [
     "Admissions Open for 2026-27",
+    "Lateral Entry admissions guidance available",
     "MBA and MCA admissions guidance available at AIMS Pune",
   ];
 
@@ -13,11 +14,11 @@ const NewsTicker = () => {
       <div className="whitespace-nowrap animate-marquee font-semibold text-xs sm:text-sm md:text-base">
         {[...news, ...news].map((item, i) => (
           <span key={i} className="mx-8">
-            {item}
-            {item.includes("Admissions Open") && (
+            <span className="mr-3">{item}</span>
+            {item.toLowerCase().includes("admissions") && (
               <Link
                 to="/contact"
-                className="ml-3 inline-flex rounded bg-yellow-400 px-3 py-1 text-xs font-extrabold text-gray-900 hover:bg-yellow-300"
+                className="inline-flex rounded bg-yellow-400 px-3 py-1 text-xs font-extrabold text-gray-900 hover:bg-yellow-300"
               >
                 Click Here
               </Link>
@@ -119,18 +120,18 @@ const Navbar = () => {
             <img
               src="/assets/logo2.png"
               alt="Aditya Institute of Management Studies"
-              className="h-10 sm:h-12 md:h-14 lg:h-16 object-contain"
+              className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
             />
           </Link>
 
           <div className="hidden lg:flex flex-col text-center flex-1 px-4">
-            <h2 className="font-bold text-[#0a2a66] text-lg xl:text-xl">
+            <h2 className="font-bold text-[#0a2a66] text-2xl xl:text-3xl">
               Aditya Institute of Management - AIMS
             </h2>
-            <p className="text-xs text-gray-700">
+            <p className="text-sm xl:text-base text-gray-700">
               Approved by AICTE New Delhi & DTE Maharashtra
             </p>
-            <p className="text-xs font-semibold text-[#0a2a66]">NAAC Accredited "B"</p>
+            <p className="text-sm xl:text-base font-semibold text-[#0a2a66]">NAAC Accredited "B"</p>
           </div>
 
           <button

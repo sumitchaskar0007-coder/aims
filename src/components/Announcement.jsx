@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import API from '../api';
 
 const Announcement = () => {
@@ -63,12 +64,12 @@ const Announcement = () => {
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                         Latest Announcements
                     </h2>
-                    <a 
-                        href="/announcements" 
+                    <Link 
+                        to="/announcements" 
                         className="text-primary text-sm font-semibold hover:underline transition-colors"
                     >
                         View All →
-                    </a>
+                    </Link>
                 </div>
                 
                 {/* Slider Container */}
