@@ -498,7 +498,7 @@ function AnimatedAdmissionsBanner() {
             }`}
           >
             <img
-              src="/assets/admission2.png"
+              src="/assets/mba1.jpeg"
               alt="Admissions 2026-27"
               className="w-full h-auto rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"
               loading="lazy"
@@ -561,6 +561,75 @@ function AnimatedAdmissionsBanner() {
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomeAboutPreview() {
+  return (
+    <section className="overflow-hidden bg-[#202a66] px-4 py-16 text-white md:py-24">
+      <div className="container-wide grid gap-12 lg:grid-cols-[1fr,0.95fr] lg:items-center">
+        <div className="max-w-3xl">
+          <p className="text-sm font-bold uppercase tracking-wide text-orange-400">About Us</p>
+          <div className="mt-3 h-0.5 w-20 bg-orange-500"></div>
+          <h2 className="mt-8 text-3xl font-extrabold md:text-4xl">
+            Aditya Institute of Management Studies, Pune
+          </h2>
+          <p className="mt-6 text-base leading-8 text-blue-50 md:text-lg">
+            AIMS is a management institute in Narhe, Pune, guided by the Jadhavar Group's
+            education vision. The institute focuses on developing confident management
+            professionals through disciplined academics, mentoring, research orientation,
+            industry exposure and placement preparation.
+          </p>
+          <p className="mt-5 text-base leading-8 text-blue-50 md:text-lg">
+            The campus supports MBA and MCA learning through classroom teaching, internships,
+            projects, seminars, cultural activity and student development initiatives. Students
+            are encouraged to build knowledge with humility, confidence and social responsibility.
+          </p>
+          <Link
+            to="/about"
+            className="mt-8 inline-flex rounded-none bg-orange-500 px-8 py-3 text-base font-extrabold text-white transition hover:bg-orange-600"
+          >
+            Read More
+          </Link>
+        </div>
+
+        <div className="relative min-h-[520px]">
+          <div className="absolute left-4 top-0 w-[58%] overflow-hidden rounded-[56px] rounded-br-none bg-white/10 shadow-2xl">
+            <img
+              src="/assets/mca.jpeg"
+              alt="AIMS student presentation"
+              className="h-[350px] w-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="absolute right-0 top-4 h-56 w-56 rounded-full border-2 border-dashed border-orange-500 p-3">
+            <img
+              src="/assets/slider1.jpg"
+              alt="AIMS classroom learning"
+              className="h-full w-full rounded-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="absolute bottom-0 right-0 w-[58%] overflow-hidden rounded-[64px] rounded-tl-none bg-white/10 shadow-2xl">
+            <img
+              src="/assets/program1.jpg"
+              alt="AIMS campus students"
+              className="h-72 w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="absolute bottom-20 left-[38%] flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-white text-[#202a66] shadow-xl">
+            <span className="text-4xl">🎓</span>
+          </div>
+
+          <div className="absolute left-[36%] top-[58%] h-0.5 w-44 border-t-2 border-dashed border-orange-500"></div>
+          <div className="absolute bottom-28 left-[49%] h-0.5 w-44 border-t-2 border-dashed border-orange-500"></div>
         </div>
       </div>
     </section>
@@ -714,6 +783,8 @@ export default function Home() {
       >
         <Announcement />
       </div>
+
+      <HomeAboutPreview />
 
       <AnimatedAdmissionsBanner />
 

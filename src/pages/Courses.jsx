@@ -26,7 +26,7 @@ export default function Courses() {
       </Helmet>
 
       <div className="bg-white">
-        {/* ⭐ HERO SECTION */}
+        {/* â­ HERO SECTION */}
         <section className="bg-gradient-to-r from-[#0a2a66] to-blue-700 text-white py-16 md:py-20 px-4">
           <div className="container-wide">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -47,7 +47,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ QUICK STATS */}
+        {/* â­ QUICK STATS */}
         <section className="bg-gray-50 py-12 px-4">
           <div className="container-wide">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -67,7 +67,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ PROGRAM OVERVIEW */}
+        {/* â­ PROGRAM OVERVIEW */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Program Overview</h2>
 
@@ -96,19 +96,19 @@ export default function Courses() {
                 <h4 className="font-bold text-gray-900">Program Highlights:</h4>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span>AICTE Approved & NAAC Accredited</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span>Affiliated to Savitribai Phule Pune University</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span>7 MBA specialization options</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span>Industry Expert Faculty</span>
                   </li>
                 </ul>
@@ -117,7 +117,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ PROGRAM OBJECTIVES */}
+        {/* â­ PROGRAM OBJECTIVES */}
         <section className="bg-gray-50 py-16 md:py-20 px-4">
           <div className="container-wide">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Program Objectives</h2>
@@ -155,7 +155,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ DURATION & STRUCTURE */}
+        {/* â­ DURATION & STRUCTURE */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Program Structure</h2>
 
@@ -244,7 +244,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ SPECIALIZATIONS */}
+        {/* â­ SPECIALIZATIONS */}
         <section className="bg-gray-50 py-16 md:py-20 px-4">
           <div className="container-wide">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">MBA Specializations</h2>
@@ -271,7 +271,7 @@ export default function Courses() {
                     to="/contact"
                     className="inline-block mt-4 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg font-semibold transition text-sm"
                   >
-                    Apply Now →
+                    Apply Now â†’
                   </Link>
                 </div>
                 );
@@ -280,7 +280,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ ADMISSION REQUIREMENTS */}
+        {/* â­ ADMISSION REQUIREMENTS */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Admission Requirements</h2>
 
@@ -314,31 +314,31 @@ export default function Courses() {
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border-l-4 border-primary">
                 <ul className="space-y-3">
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span className="text-gray-700">Bachelor's degree certificate & mark sheets</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span className="text-gray-700">12th & 10th class certificates</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span className="text-gray-700">Entrance exam score card (CAT/MAT/XAT)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span className="text-gray-700">Passport size photographs (4x6 cm)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span className="text-gray-700">Valid ID proof (Aadhar/PAN/Driving License)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span className="text-gray-700">Work experience certificate (if applicable)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
+                    <span className="text-primary font-bold">âœ“</span>
                     <span className="text-gray-700">Category certificate (SC/ST/OBC if applicable)</span>
                   </li>
                 </ul>
@@ -347,7 +347,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ FEES & FINANCIAL AID */}
+        {/* â­ FEES & FINANCIAL AID */}
         <section className="bg-gray-50 py-16 md:py-20 px-4">
           <div className="container-wide">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Fees & Financial Information</h2>
@@ -356,34 +356,13 @@ export default function Courses() {
               {/* Fee Structure Table */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-primary to-blue-700 text-white p-6">
-                  <h3 className="text-xl font-bold">Fee Structure (A.Y. 2025-26)</h3>
+                  <h3 className="text-xl font-bold">Fee Structure</h3>
                 </div>
-                <table className="w-full text-sm md:text-base">
-                  <thead className="bg-yellow-100 border-b">
-                    <tr>
-                      <th className="px-4 py-3 text-left font-bold text-gray-900">Description</th>
-                      <th className="px-4 py-3 text-right font-bold text-gray-900">Amount (₹)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y">
-                    <tr className="hover:bg-gray-50">
-                      <td className="px-4 py-3 text-gray-700">Tuition Fees (Per Semester)</td>
-                      <td className="px-4 py-3 text-right font-semibold text-gray-900">69,642</td>
-                    </tr>
-                    <tr className="hover:bg-gray-50">
-                      <td className="px-4 py-3 text-gray-700">Development Fees (Per Semester)</td>
-                      <td className="px-4 py-3 text-right font-semibold text-gray-900">8,358</td>
-                    </tr>
-                    <tr className="bg-yellow-50 font-bold">
-                      <td className="px-4 py-3 text-gray-900">Total Per Semester</td>
-                      <td className="px-4 py-3 text-right text-primary">78,000</td>
-                    </tr>
-                    <tr className="bg-primary/10 font-bold">
-                      <td className="px-4 py-3 text-gray-900">Total for 2 Years (4 Semesters)</td>
-                      <td className="px-4 py-3 text-right text-primary text-lg">₹3,12,000</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className="p-8 text-center">
+                  <p className="text-sm font-bold uppercase tracking-wide text-gray-500">MBA/MCA Fees</p>
+                  <p className="mt-3 text-5xl font-extrabold text-primary">Rs. 79,200</p>
+                  <p className="mt-3 text-sm text-gray-600">Contact the admissions office for payment and scholarship guidance.</p>
+                </div>
               </div>
 
               {/* Financial Aid & Support */}
@@ -434,7 +413,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ CURRICULUM HIGHLIGHT */}
+        {/* â­ CURRICULUM HIGHLIGHT */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Curriculum Highlights</h2>
 
@@ -458,7 +437,7 @@ export default function Courses() {
                 <ul className="space-y-3">
                   {category.items.map((item, i) => (
                     <li key={i} className="flex gap-3 text-gray-700">
-                      <span className="text-primary font-bold">•</span>
+                      <span className="text-primary font-bold">â€¢</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -468,7 +447,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ CTA SECTION */}
+        {/* â­ CTA SECTION */}
         <section className="bg-gradient-to-r from-[#0a2a66] to-blue-700 text-white py-16 md:py-20 px-4">
           <div className="container-wide text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your MBA/MCA Journey?</h2>
@@ -492,17 +471,17 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* ⭐ QUICK LINKS */}
+        {/* â­ QUICK LINKS */}
         <section className="bg-gray-50 py-12 px-4">
           <div className="container-wide">
             <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Quick Links</h3>
             <div className="flex flex-wrap gap-4 justify-center">
               {[
                 { label: 'About Us', href: '/about' },
-                { label: 'Faculty', href: '/faculty' },
-                { label: 'Facilities', href: '/facilities' },
-                { label: 'Placements', href: '/placements' },
-                { label: 'Admissions', href: '/admissions' },
+                { label: 'Faculty', href: '/academics' },
+                { label: 'Facilities', href: '/about/campus' },
+                { label: 'Placements', href: '/placement' },
+                { label: 'Admissions', href: '/contact' },
                 { label: 'Apply Now', href: '/contact' },
               ].map((link, index) => (
                 <Link

@@ -41,9 +41,9 @@ export default function Naac() {
         </section>
 
         <section className="container-wide py-16">
-          <div className="grid lg:grid-cols-[360px,1fr] gap-10 items-center">
+          <div className="grid lg:grid-cols-[460px,1fr] gap-10 items-center">
             <div className="rounded-lg border border-green-200 bg-green-50 p-8 text-center">
-              <img src="/assets/nac.png" alt="NAAC accreditation" className="mx-auto h-40 w-40 object-contain" />
+              <img src="/assets/nac.png" alt="NAAC accreditation" className="mx-auto h-72 w-72 object-contain" />
               <p className="mt-6 text-sm font-bold uppercase tracking-wide text-green-700">Status</p>
               <h2 className="mt-2 text-4xl font-black text-green-700">Grade B</h2>
               <p className="mt-2 text-gray-700">National Assessment and Accreditation Council</p>

@@ -35,8 +35,8 @@ const aboutPages = {
     menu: "Vision & Mission",
     title: "Vision, Mission and Institutional Goals",
     eyebrow: "Direction",
-    image: "/assets/admission1.png",
-    alt: "AIMS admission and learning environment",
+    image: "/assets/mba1.jpeg",
+    alt: "AIMS MBA learning environment",
     intro:
       "AIMS aims to develop ethical, employable and confident management professionals through industry-linked learning, mentoring, practical exposure and continuous improvement.",
     highlights: ["Employability", "Ethical leadership", "Practical learning", "Global outlook"],
@@ -129,7 +129,7 @@ const aboutPages = {
           "Under his leadership, AIMS has strengthened its industry partnerships, modernized its curriculum, and enhanced placement support. His practical, student-first approach ensures that classroom learning is complemented by internships, live projects, corporate exposure, and professional development activities.",
       },
     ],
-    gallery: ["/assets/Shardul_jadhavar.jpeg", "/assets/admission2.png", "/assets/sports-meet.png"],
+    gallery: ["/assets/Shardul_jadhavar.jpeg", "/assets/mba1.jpeg", "/assets/sports-meet.png"],
   },
   campus: {
     menu: "Campus",
