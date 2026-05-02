@@ -314,7 +314,7 @@ function LeadershipProfile({ page }) {
                   <img
                     src={page.image}
                     alt={page.alt}
-                    className="h-80 w-full object-cover"
+                    className="h-96 w-full bg-gray-50 object-contain p-3"
                     loading="lazy"
                   />
                 </div>
@@ -463,34 +463,6 @@ export default function AboutDetail() {
                     <p className="mt-4 text-gray-700 leading-relaxed">
                       {section.text}
                     </p>
-                  </div>
-                </AnimatedCard>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Gallery Section */}
-        <AnimatedSection className="py-16 px-4 bg-white">
-          <div className="container-wide">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">Image Gallery</h2>
-            <p className="text-center text-gray-600 mb-12">A glimpse of our campus and leadership</p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {page.gallery.map((src, index) => (
-                <AnimatedCard key={src} delay={index * 100}>
-                  <div className="group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img
-                      src={getValidImageSrc(src, `gallery-${index}`)}
-                      alt={`${page.menu} gallery ${index + 1}`}
-                      className="h-64 w-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-                      onError={() => handleImageError(`gallery-${index}`)}
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-white text-sm font-semibold bg-black/50 px-3 py-1 rounded-full">
-                        View
-                      </span>
-                    </div>
                   </div>
                 </AnimatedCard>
               ))}

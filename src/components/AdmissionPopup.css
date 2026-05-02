@@ -1,0 +1,376 @@
+/* AdmissionPopup.css */
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Popup Container */
+.popup-container {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+  z-index: 10;
+}
+
+.popup-close:hover {
+  color: #000;
+}
+
+/* Popup Header */
+.popup-header {
+  text-align: center;
+  padding: 25px 20px 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.popup-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.popup-header p {
+  margin: 8px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Form Styles */
+.admission-form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* Error Styles */
+.error-input {
+  border-color: #f44336 !important;
+}
+
+.error-text {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Message Styles */
+.success-message {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 15px 20px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  animation: slideDown 0.3s ease;
+}
+
+.error-message {
+  background-color: #f44336;
+  color: white;
+  padding: 12px;
+  margin: 15px 20px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ==================== SPINNER CSS ==================== */
+/* Spinner animation for loading state */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Larger spinner for buttons */
+.spinner-large {
+  width: 20px;
+  height: 20px;
+  border-width: 3px;
+}
+
+/* Spinner color variants */
+.spinner-primary {
+  border-top-color: #4CAF50;
+  border-right-color: rgba(76, 175, 80, 0.2);
+  border-bottom-color: rgba(76, 175, 80, 0.2);
+  border-left-color: rgba(76, 175, 80, 0.2);
+}
+
+.spinner-white {
+  border-top-color: #ffffff;
+  border-right-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Spin keyframe animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional: Pulsing animation for success state */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.success-message {
+  animation: slideDown 0.3s ease, pulse 2s ease-in-out 2;
+}
+
+/* Scrollbar Styling */
+.popup-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.popup-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.popup-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.popup-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .popup-container {
+    width: 95%;
+    max-height: 85vh;
+  }
+  
+  .popup-header h2 {
+    font-size: 20px;
+  }
+  
+  .popup-header p {
+    font-size: 12px;
+  }
+  
+  .admission-form {
+    padding: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 13px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .submit-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .spinner {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+  }
+}
+
+/* Accessibility - Reduce motion for users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+  .popup-overlay,
+  .popup-container,
+  .submit-btn,
+  .spinner,
+  .success-message,
+  .error-message {
+    animation: none;
+    transition: none;
+  }
+  
+  .spinner {
+    animation: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.submit-btn:focus-visible,
+.popup-close:focus-visible,
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 2px solid #4CAF50;
+  outline-offset: 2px;
+}
+
+/* Loading overlay for form submission */
+.form-loading {
+  position: relative;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Optional: Add a subtle shadow to the popup on hover */
+.popup-container:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}

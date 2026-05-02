@@ -499,7 +499,7 @@ function AnimatedAdmissionsBanner() {
           >
             <img
               src="/assets/admission2.png"
-              alt="Admissions 2026-28"
+              alt="Admissions 2026-27"
               className="w-full h-auto rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"
               loading="lazy"
             />
@@ -515,7 +515,7 @@ function AnimatedAdmissionsBanner() {
           >
             <div className="space-y-3">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Admissions Open for <span className="text-primary">2026–28</span>
+                Admissions Open for <span className="text-primary">2026-27</span>
               </h2>
               <p className="text-gray-600 text-base md:text-lg">
                 Join AIMS and kickstart your management career with industry-ready education and world-class faculty mentorship.
@@ -553,9 +553,12 @@ function AnimatedAdmissionsBanner() {
                   : 'opacity-0 translate-y-8'
               }`}
             >
-              <button className="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl hover:scale-105 text-center cursor-pointer">
+              <Link
+                to="/contact"
+                className="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl hover:scale-105 text-center cursor-pointer"
+              >
                 Apply Now →
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -615,7 +618,8 @@ function AnimatedCTA() {
         >
           Join AIMS and become part of a community dedicated to excellence, innovation, and success in management education.
         </p>
-        <button
+        <Link
+          to="/contact"
           className={`inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-xl ${
             isVisible
               ? 'opacity-100 translate-y-0'
@@ -624,7 +628,7 @@ function AnimatedCTA() {
           style={{ transitionDelay: '400ms' }}
         >
           Start Your Application Today
-        </button>
+        </Link>
       </div>
     </section>
   );
@@ -632,7 +636,6 @@ function AnimatedCTA() {
 
 export default function Home() {
   const [events, setEvents] = useState([]);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(false);
   const heroRef = useRef(null);
 
@@ -647,10 +650,6 @@ export default function Home() {
       }
     };
     load();
-
-    const timer = setTimeout(() => {
-      setIsPopupOpen(true);
-    }, 1000);
 
     // Observe hero section for entrance animation
     const heroObserver = new IntersectionObserver(
@@ -668,7 +667,6 @@ export default function Home() {
     }
 
     return () => {
-      clearTimeout(timer);
       if (heroRef.current) {
         heroObserver.unobserve(heroRef.current);
       }
@@ -681,36 +679,6 @@ export default function Home() {
     { id: 3, image: '/assets/slider3.jpg', title: 'Auditorium' },
     { id: 4, image: '/assets/slider4.jpg', title: 'Lab Facilities' },
   ];
-
-  const handleAdmissionSubmit = async (formData) => {
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/admissions/submit`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Submission failed');
-      }
-
-      sessionStorage.setItem('admissionFormSubmitted', 'true');
-      alert(`✓ ${data.message}\n\nThank you ${formData.name}! We have received your ${formData.course} application. Our admission counselor will contact you within 24-48 hours.`);
-
-      return data;
-    } catch (error) {
-      console.error('Submission error:', error);
-      throw new Error(error.message || 'Failed to submit. Please try again.');
-    }
-  };
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
 
   return (
     <>
@@ -725,11 +693,8 @@ export default function Home() {
         <link rel="canonical" href="https://adityainstitutemanagement.com" />
       </Helmet>
 
-      <AdmissionPopup
-        isOpen={isPopupOpen}
-        onClose={handleClosePopup}
-        onSubmit={handleAdmissionSubmit}
-      />
+      {/* Admission Popup Component */}
+      <AdmissionPopup />
 
       {/* Hero Slider with fade-in animation */}
       <div
