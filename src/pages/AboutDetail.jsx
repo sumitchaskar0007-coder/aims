@@ -5,29 +5,21 @@ import { useEffect, useRef, useState } from "react";
 const aboutPages = {
   "the-jadhavar": {
     menu: "The Jadhavar",
-    title: "The Jadhavar Educational Legacy",
+    title: "Jadhavar Group of Institutes",
     eyebrow: "About AIMS",
     image: "/assets/logo1.png",
     alt: "Jadhavar Group logo",
     intro:
-      "The Jadhavar educational journey is built on the belief that education should develop strength, wisdom, intellect and social responsibility. AIMS carries this legacy into management education through disciplined academics, mentoring and student-centred growth.",
-    highlights: ["Value-based education", "Academic discipline", "Student development", "Social responsibility"],
-    sections: [
-      {
-        title: "About the Institution",
-        text:
-          "Aditya Institute of Management Studies works under the larger Jadhavar educational vision. The institute focuses on creating confident management professionals who understand business, people, ethics and society.",
-      },
-      {
-        title: "Educational Thought",
-        text:
-          "The Jadhavar approach gives importance to knowledge, character, humility and confidence. Students are encouraged to participate in academic, cultural, social and professional activities.",
-      },
-      {
-        title: "AIMS Connection",
-        text:
-          "At AIMS Pune, this legacy is reflected through MBA and MCA learning, placement support, industry exposure, mentoring, research orientation and a practical campus environment.",
-      },
+      "Jadhavar - The Symbol of Success, established in 2014, represents a growing educational movement committed to social, intellectual and quality education under the umbrella of Prin. Dr. Sudhakarrao Jadhavar Group of Educational Institutes.",
+    highlights: ["Since 2014", "18,000+ students", "700+ employees", "55 institutes"],
+    bodyParagraphs: [
+      "Education at the Jadhavar Group of Institutes is focused on bringing social, intellectual and quality education under one umbrella. Once a student enters any standard from nursery to post-graduation, the group believes in translating educational aims into action with perfection, discipline and value-based development.",
+      "The group provides education across different disciplines including Arts, Commerce, Science, Nursing, D.Ed., B.Ed., Open University education and two-year Masters in Business Administration. This broad academic ecosystem supports learners at multiple stages of their educational journey.",
+      "Within a short span, Jadhavar - The Symbol of Success has earned the trust of more than 18,000 students and their parents, along with 700+ employees. The journey that began in 2014 with a girls school has grown to 55 educational institutes.",
+      "The group is headed by Prin. Dr. Sudhakarrao Jadhavar, a visionary educationist and former Dean, Faculty of Commerce, Savitribai Phule Pune University. He has contributed to university academic bodies, served as a research guide at national and international levels, and has also been associated with the Maharashtra Nursing Council and Principal Forum of S.P.P.U.",
+      "The group is co-headed by Adv. Shardulrao S. Jadhavar, a young and dynamic leader known for committed, disciplined and enthusiastic work in the social, cultural and educational fields. As President of Dr. Sudhakarrao Jadhavar Social and Educational Trust, he has supported activities for empowerment and upliftment of target groups in society, and has received recognitions including the Sardar Vallabhbhai Patel National Youth Award, New Delhi.",
+      "Through its educational approach, the group builds students' collective ability to cope with a changing global, competitive and technology-driven era. Along with structured knowledge, dynamic development, best practices, ethics and values are nurtured through the learning process, supported by state-of-the-art facilities and discipline-specific resources.",
+      "The group believes that seeking knowledge is a continuous and never-ending process. Value addition programmes are customized to suit student needs and equip them with skills demanded by the globalized corporate world.",
     ],
     gallery: ["/assets/logo2.png", "/assets/bg1.png", "/assets/cultural-fest.png"],
   },
@@ -68,12 +60,28 @@ const aboutPages = {
     intro:
       "Dr. Sudhakarrao Jadhavar, the visionary Founder President & Chairman of AIMS, brings decades of academic excellence and a deep commitment to value-based education. His leadership has shaped the institution into a center of holistic learning and professional development.",
     designation: "Founder President & Chairman",
-    degrees: "M.Com, M.A., LL.M., M.P.M., D.T.L., D.L.L. & L.W., G.D.C. & A., Ph.D",
+    degrees: "M.Com, M.A., LL.M., D.T.L., M.P.M., D.L.L. & L.W., G.D.C. & A., Ph.D",
     profileParagraphs: [
       "Dr. Sudhakarrao Jadhavar is a visionary educationist whose lifelong commitment to learning, discipline and social upliftment has shaped the foundation of AIMS. His work reflects the belief that education must create strength of character, clarity of thought and a responsible attitude toward society.",
       "As Founder President & Chairman, he has guided the institution with a balanced focus on academic quality, student welfare and institutional growth. His leadership encourages a culture where students are not only trained for professional success, but also prepared to act with humility, integrity and confidence.",
       "His multidisciplinary academic background in commerce, law, management and humanities gives him a broad understanding of modern education. This perspective helps AIMS connect classroom learning with practical development, ethical values and social awareness.",
       "Under his guidance, the institute continues to strengthen its academic systems, mentoring practices, placement support and student development initiatives. His message to every student is simple and powerful: knowledge becomes meaningful only when it is supported by discipline, courage and service.",
+    ],
+    messageTitle: "Secretary's Message",
+    messageGreeting: "Dear Researchers,",
+    messageParagraphs: [
+      "It is a matter of great pleasure and pride that the MBA and PGDM programs at Aditya Institute of Management - AIMS, Prin. Dr. Sudhakarrao Jadhavar Educational Campus, Manaji Nagar, Narhe, Pune, are recognized among the prestigious institutes in Pune city.",
+      "I implore all members of the faculty to follow a path of ethically oriented and socially relevant education so that the institute can play a pivotal role in creating and disseminating knowledge, educating a highly skilled workforce for technological and intellectual leadership, and enhancing the competitiveness of society in the emerging knowledge economy.",
+      "AIMS, with this goal in mind, will offer postgraduate courses as per the syllabus designed by Savitribai Phule Pune University.",
+      "I am confident that AIMS will live up to the expectations of today's corporate world and help the nation and society fulfill the dream of becoming a superpower by creating empowered managers and entrepreneurs of high caliber.",
+      "I wish heartiest congratulations to students, teacher-educators and members of staff. Wish you all the best.",
+    ],
+    messageSignature: "Hon. Prin. Dr. Sudhakarrao Jadhavar",
+    roles: [
+      "President: Akhil Bhartiya Principal Federation",
+      "Ex. Management Council Member: Savitribai Phule Pune University, Pune",
+      "General Secretary: Maharashtra State Principal Federation",
+      "Secretary General: Principal Forum, Savitribai Phule Pune University, Pune",
     ],
     highlights: ["Founder Leadership", "Academic Excellence", "Value-based Education", "Institutional Vision"],
     sections: [
@@ -104,12 +112,33 @@ const aboutPages = {
     intro:
       "Adv. Shardulrao Sudhakarrao Jadhavar, the dynamic Vice President of AIMS, combines expertise in management, commerce, and law to drive student-focused development, modern education practices, and robust industry connections.",
     designation: "Vice President",
-    degrees: "MBA, PGD-HRM, M.Com, D.H.R & L., D.C.L, D.C.P.L, A.P.C.L, C.MED, D.L.L & L.W., LL.M.",
+    degrees: "M.B.A., P.G.D.H.R.M., B.Com., D.H.R.L., D.C.L., D.C.P.L., A.C.P.L., CMED, D.L.L. & L.W., LL.M.",
     profileParagraphs: [
       "Adv. Shardulrao Sudhakarrao Jadhavar brings a dynamic, student-first approach to institutional leadership. His work at AIMS focuses on building a learning environment where academic teaching, personal mentoring, placement preparation and industry exposure move together.",
       "As Vice President, he supports initiatives that help students become professionally capable and personally confident. His guidance strengthens career counseling, skill development, internship readiness, NSS activities, mental health awareness and holistic student support.",
       "With qualifications across management, commerce, law, human resource development and mediation, he brings a practical and multidisciplinary perspective to education. This helps the institute design systems that respond to the changing expectations of industry and society.",
       "He believes that management and computer application students need more than classroom knowledge. They need communication skills, decision-making ability, ethical judgment, leadership habits and the confidence to work in real professional environments.",
+    ],
+    messageTitle: "President's Message",
+    messageGreeting: "Dear Researchers,",
+    messageParagraphs: [
+      "It is my pride, pleasure and privilege to welcome you to our renowned educational management institute. Efficient business administration has become a norm of today's competitive world and has touched and transformed our lives across society and industry.",
+      "To fulfill the dream of making our country a superpower, we need quality managers and new entrepreneurs. Aditya Educational Foundation has recognized and addressed this need through AIMS by creating knowledgeable and empowered leaders for the corporate world.",
+      "AIMS has a student-centric approach that will bring all-round development of students and empower them to face the challenges of a highly competitive world.",
+      "Our aim is to harness every student's potential, enhance skills to perfection and build professional leaders with high academic aptitude through a student-centric system and advanced teaching methods.",
+      "The faculty at AIMS are meticulously chosen. They will not merely impart knowledge, but will also imbibe ambition in students and strive to extract the best in each student.",
+      "AIMS, with this goal in mind, will offer postgraduate courses as per the syllabus designed by Savitribai Phule Pune University.",
+      "I am confident that AIMS will live up to the expectations of today's corporate world and help the nation and society fulfill the dream of becoming a superpower by creating empowered managers and entrepreneurs of high caliber. Wish you all the best.",
+    ],
+    messageSignature: "Hon. Adv. Shardul Sudhakarrao Jadhavar",
+    roles: ["Vice President: Jadhavar Group of Institutes"],
+    ventures: [
+      "Jadhavar Hotel and Developers Pvt. Ltd.",
+      "Jadhavar Films",
+      "Jadhavar Real Estate",
+      "Shardul Sudhakarrao Jadhavar Associates",
+      "Jadhavar Legal Firm",
+      "Pracharya Dr. Sudhakarrao Jadhavar Sevakanachi Patsanstha",
     ],
     highlights: ["Student-Centric Leadership", "Industry Integration", "Legal & Management Expertise", "Holistic Development"],
     sections: [
@@ -166,24 +195,15 @@ const aboutPages = {
     image: "/assets/slider 2.jpg",
     alt: "Pune city and campus life",
     intro:
-      "Pune is one of India's leading education and industry cities, giving management students access to academic culture, internships, corporate exposure and a vibrant student community.",
+      "Pune gives AIMS and Jadhavar Group students access to academic culture, industry exposure, internships, entrepreneurship and a vibrant student community.",
     highlights: ["Education hub", "IT and industry", "Startup ecosystem", "Student-friendly city"],
-    sections: [
-      {
-        title: "Education Hub",
-        text:
-          "Pune is known for higher education, professional colleges, universities and a strong academic environment that attracts students from across India.",
-      },
-      {
-        title: "Industry Access",
-        text:
-          "The city has opportunities across IT, banking, finance, consulting, manufacturing, retail, services and startups, making it useful for MBA and MCA exposure.",
-      },
-      {
-        title: "Student Life",
-        text:
-          "Pune offers a balanced environment for learning, networking, cultural activity, internships and professional growth.",
-      },
+    bodyParagraphs: [
+      "Pune is widely known as one of India's most respected education cities, and this academic environment gives students of AIMS and the Jadhavar Group a strong advantage. The city has a long tradition of learning, universities, professional colleges, research culture and student-friendly surroundings, making it a natural destination for young learners from across Maharashtra and India.",
+      "For management and computer application students, Pune offers meaningful exposure beyond the classroom. The city is connected with IT parks, manufacturing companies, banking and finance organizations, consulting firms, retail businesses, startups and service-sector opportunities. This gives AIMS students access to internships, industry visits, guest sessions, live projects and practical understanding of how modern organizations work.",
+      "The Jadhavar Group's educational campus at Narhe benefits from Pune's growing academic and industrial ecosystem. Students learn in a city where education, entrepreneurship and employment opportunities move together, helping them connect classroom knowledge with real business challenges. This environment supports the institute's focus on employability, professional discipline and value-based development.",
+      "Pune is also a culturally rich and socially active city. Students experience a balanced lifestyle through academic events, cultural programs, seminars, workshops, sports, social initiatives and networking opportunities. This helps learners build communication, confidence, teamwork and leadership qualities that are important for professional success.",
+      "The city's startup and innovation culture is especially useful for students who wish to become entrepreneurs or business leaders. Exposure to new ideas, technology-driven businesses and evolving market practices helps students understand competition, customer needs, digital transformation and the importance of continuous learning.",
+      "For the Jadhavar Group of Institutes, Pune is more than a location; it is an educational advantage. The city supports the group's mission of creating capable, ethical and socially responsible students who can contribute to industry, society and the nation with confidence.",
     ],
     gallery: ["/assets/slider 2.jpg", "/assets/slider1.jpg", "/assets/cultural-fest.png"],
   },
@@ -325,6 +345,40 @@ function LeadershipProfile({ page }) {
 
         <section className="bg-gray-50 py-16 px-4">
           <div className="container-wide">
+            {page.messageParagraphs && (
+              <div className="mb-12 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+                <p className="text-sm font-bold uppercase tracking-wide text-primary">
+                  {page.messageTitle}
+                </p>
+                <p className="mt-5 font-semibold text-gray-900">{page.messageGreeting}</p>
+                <div className="mt-4 space-y-4 text-[17px] leading-8 text-gray-700">
+                  {page.messageParagraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <div className="mt-6 border-t border-gray-200 pt-5 text-gray-700">
+                  <p className="text-lg font-bold text-gray-900">{page.messageSignature}</p>
+                  <p className="mt-2 text-sm">{page.degrees}</p>
+                  {page.roles?.map((role) => (
+                    <p key={role} className="mt-1 text-sm">
+                      {role}
+                    </p>
+                  ))}
+                  {page.ventures && (
+                    <div className="mt-5">
+                      <p className="font-bold text-gray-900">Associated Ventures</p>
+                      <div className="mt-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {page.ventures.map((venture) => (
+                          <p key={venture} className="rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-[#0a2a66]">
+                            {venture}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
             <h2 className="mb-8 text-3xl font-bold text-gray-900">
               Detailed Profile of {page.title}
             </h2>
@@ -440,7 +494,15 @@ export default function AboutDetail() {
                       {item === "Ethical leadership" && "🏆"}
                       {item === "Practical learning" && "🔧"}
                       {item === "Global outlook" && "🌍"}
-                      {!["Founder Leadership", "Academic Excellence", "Value-based Education", "Institutional Vision", "Student-Centric Leadership", "Industry Integration", "Legal & Management Expertise", "Holistic Development", "Employability", "Ethical leadership", "Practical learning", "Global outlook"].includes(item) && "✓"}
+                      {item === "Since 2014" && "2014"}
+                      {item === "18,000+ students" && "18K+"}
+                      {item === "700+ employees" && "700+"}
+                      {item === "55 institutes" && "55"}
+                      {item === "Education hub" && "EDU"}
+                      {item === "IT and industry" && "IT"}
+                      {item === "Startup ecosystem" && "START"}
+                      {item === "Student-friendly city" && "CITY"}
+                      {!["Founder Leadership", "Academic Excellence", "Value-based Education", "Institutional Vision", "Student-Centric Leadership", "Industry Integration", "Legal & Management Expertise", "Holistic Development", "Employability", "Ethical leadership", "Practical learning", "Global outlook", "Since 2014", "18,000+ students", "700+ employees", "55 institutes", "Education hub", "IT and industry", "Startup ecosystem", "Student-friendly city"].includes(item) && "OK"}
                     </span>
                   </div>
                   <p className="font-bold text-[#0a2a66]">{item}</p>
@@ -453,20 +515,32 @@ export default function AboutDetail() {
         {/* Content Sections */}
         <AnimatedSection className="bg-gray-50 pb-16 px-4">
           <div className="container-wide">
-            <div className="space-y-6">
-              {page.sections.map((section, index) => (
-                <AnimatedCard key={section.title} delay={index * 150}>
-                  <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-md hover:shadow-lg transition-all duration-300">
-                    <h2 className="text-2xl font-bold text-gray-900 border-l-4 border-primary pl-4">
-                      {section.title}
-                    </h2>
-                    <p className="mt-4 text-gray-700 leading-relaxed">
-                      {section.text}
-                    </p>
+            {page.bodyParagraphs ? (
+              <AnimatedCard>
+                <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-md">
+                  <div className="space-y-5 text-[17px] leading-8 text-gray-700">
+                    {page.bodyParagraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
                   </div>
-                </AnimatedCard>
-              ))}
-            </div>
+                </div>
+              </AnimatedCard>
+            ) : (
+              <div className="space-y-6">
+                {page.sections.map((section, index) => (
+                  <AnimatedCard key={section.title} delay={index * 150}>
+                    <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-md hover:shadow-lg transition-all duration-300">
+                      <h2 className="text-2xl font-bold text-gray-900 border-l-4 border-primary pl-4">
+                        {section.title}
+                      </h2>
+                      <p className="mt-4 text-gray-700 leading-relaxed">
+                        {section.text}
+                      </p>
+                    </div>
+                  </AnimatedCard>
+                ))}
+              </div>
+            )}
           </div>
         </AnimatedSection>
 

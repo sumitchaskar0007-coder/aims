@@ -599,7 +599,7 @@ function HomeAboutPreview() {
         <div className="relative min-h-[520px]">
           <div className="absolute left-4 top-0 w-[58%] overflow-hidden rounded-[56px] rounded-br-none bg-white/10 shadow-2xl">
             <img
-              src="/assets/mca.jpeg"
+              src="/assets/mba1.jpeg"
               alt="AIMS student presentation"
               className="h-[350px] w-full object-cover object-center"
               loading="lazy"
