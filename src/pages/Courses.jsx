@@ -9,6 +9,9 @@ import {
   mbaSyllabus,
 } from '../data/websiteContent';
 
+const mbaSyllabusUrl =
+  'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FINAL%20MBA_Syllabus_2024_Pattern_NEP_2020_27.03.2025_29032025.pdf';
+
 export default function Courses() {
   return (
     <>
@@ -26,7 +29,7 @@ export default function Courses() {
       </Helmet>
 
       <div className="bg-white">
-        {/* â­ HERO SECTION */}
+        {/* HERO SECTION */}
         <section className="bg-gradient-to-r from-[#0a2a66] to-blue-700 text-white py-16 md:py-20 px-4">
           <div className="container-wide">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -47,7 +50,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ QUICK STATS */}
+        {/* QUICK STATS */}
         <section className="bg-gray-50 py-12 px-4">
           <div className="container-wide">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -67,7 +70,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ PROGRAM OVERVIEW */}
+        {/* PROGRAM OVERVIEW */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Program Overview</h2>
 
@@ -96,19 +99,19 @@ export default function Courses() {
                 <h4 className="font-bold text-gray-900">Program Highlights:</h4>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span>AICTE Approved & NAAC Accredited</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span>Affiliated to Savitribai Phule Pune University</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span>7 MBA specialization options</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span>Industry Expert Faculty</span>
                   </li>
                 </ul>
@@ -117,7 +120,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ PROGRAM OBJECTIVES */}
+        {/* PROGRAM OBJECTIVES */}
         <section className="bg-gray-50 py-16 md:py-20 px-4">
           <div className="container-wide">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Program Objectives</h2>
@@ -155,7 +158,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ DURATION & STRUCTURE */}
+        {/* DURATION & STRUCTURE */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Program Structure</h2>
 
@@ -207,7 +210,17 @@ export default function Courses() {
                   Semester-wise course type, credits and assessment structure for the MBA programme.
                 </p>
               </div>
-              <span className="rounded-md bg-yellow-100 px-4 py-2 text-sm font-bold text-gray-900">2024 Pattern</span>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={mbaSyllabusUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md bg-[#0a2a66] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800"
+                >
+                  View MBA Syllabus
+                </a>
+                <span className="rounded-md bg-yellow-100 px-4 py-3 text-sm font-bold text-gray-900">2024 Pattern</span>
+              </div>
             </div>
 
             <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -242,12 +255,25 @@ export default function Courses() {
               ))}
             </div>
           </div>
+         
         </section>
-
-        {/* â­ SPECIALIZATIONS */}
+        {/* SPECIALIZATIONS */}
         <section className="bg-gray-50 py-16 md:py-20 px-4">
           <div className="container-wide">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">MBA Specializations</h2>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">MBA Specializations</h2>
+              <p className="mx-auto mt-3 max-w-3xl text-gray-600">
+                Select a career-focused specialization aligned with the MBA syllabus and NEP 2020 pattern.
+              </p>
+              <a
+                href={mbaSyllabusUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex rounded-md bg-yellow-400 px-6 py-3 text-sm font-bold text-gray-900 hover:bg-yellow-300"
+              >
+                Download / View Syllabus
+              </a>
+            </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {mbaSpecializations.map((name, index) => {
@@ -271,7 +297,7 @@ export default function Courses() {
                     to="/contact"
                     className="inline-block mt-4 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg font-semibold transition text-sm"
                   >
-                    Apply Now â†’
+                    Apply Now
                   </Link>
                 </div>
                 );
@@ -280,7 +306,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ ADMISSION REQUIREMENTS */}
+        {/* ADMISSION REQUIREMENTS */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Admission Requirements</h2>
 
@@ -314,31 +340,31 @@ export default function Courses() {
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border-l-4 border-primary">
                 <ul className="space-y-3">
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span className="text-gray-700">Bachelor's degree certificate & mark sheets</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span className="text-gray-700">12th & 10th class certificates</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span className="text-gray-700">Entrance exam score card (CAT/MAT/XAT)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span className="text-gray-700">Passport size photographs (4x6 cm)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span className="text-gray-700">Valid ID proof (Aadhar/PAN/Driving License)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span className="text-gray-700">Work experience certificate (if applicable)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-primary font-bold">âœ“</span>
+                    <span className="text-primary font-bold">-</span>
                     <span className="text-gray-700">Category certificate (SC/ST/OBC if applicable)</span>
                   </li>
                 </ul>
@@ -347,7 +373,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ FEES & FINANCIAL AID */}
+        {/* FEES & FINANCIAL AID */}
         <section className="bg-gray-50 py-16 md:py-20 px-4">
           <div className="container-wide">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Fees & Financial Information</h2>
@@ -413,7 +439,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ CURRICULUM HIGHLIGHT */}
+        {/* CURRICULUM HIGHLIGHT */}
         <section className="container-wide py-16 md:py-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Curriculum Highlights</h2>
 
@@ -437,7 +463,7 @@ export default function Courses() {
                 <ul className="space-y-3">
                   {category.items.map((item, i) => (
                     <li key={i} className="flex gap-3 text-gray-700">
-                      <span className="text-primary font-bold">â€¢</span>
+                      <span className="text-primary font-bold">-</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -447,7 +473,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ CTA SECTION */}
+        {/* CTA SECTION */}
         <section className="bg-gradient-to-r from-[#0a2a66] to-blue-700 text-white py-16 md:py-20 px-4">
           <div className="container-wide text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your MBA/MCA Journey?</h2>
@@ -471,7 +497,7 @@ export default function Courses() {
           </div>
         </section>
 
-        {/* â­ QUICK LINKS */}
+        {/* QUICK LINKS */}
         <section className="bg-gray-50 py-12 px-4">
           <div className="container-wide">
             <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Quick Links</h3>

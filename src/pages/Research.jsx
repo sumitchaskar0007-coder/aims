@@ -26,6 +26,27 @@ export default function Research() {
     },
   ];
 
+  const researchDocuments = [
+    {
+      title: "National Conference",
+      text: "Access the national conference abstract book and report.",
+      links: [
+        { label: "Abstract Book", href: "/pdf/national_conference.pdf" },
+        { label: "Report", href: "/pdf/national_conference_report.pdf" },
+      ],
+    },
+    {
+      title: "Faculty Research Paper",
+      text: "View research papers by faculty members.",
+      links: [{ label: "Open PDF", href: "/pdf/faculty_research_papers.pdf" }],
+    },
+    {
+      title: "Student Research Paper",
+      text: "View research papers submitted by students.",
+      links: [{ label: "Open PDF", href: "/pdf/student_research_papers.pdf" }],
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -76,6 +97,34 @@ export default function Research() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="container-wide py-16">
+          <h2 className="text-3xl font-bold text-gray-900">Research Documents</h2>
+          <p className="mt-4 max-w-3xl text-gray-700 leading-relaxed">
+            Browse national conference material, faculty research papers and student research papers.
+          </p>
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {researchDocuments.map((document) => (
+              <div key={document.title} className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900">{document.title}</h3>
+                <p className="mt-3 text-gray-700 leading-relaxed">{document.text}</p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {document.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-md bg-[#0a2a66] px-4 py-2 text-sm font-bold text-white hover:bg-blue-800"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

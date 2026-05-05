@@ -5,8 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 const NewsTicker = () => {
   const news = [
     "Admissions Open for 2026-27",
-    "Lateral Entry admissions guidance available",
-    "MBA and MCA admissions guidance available at AIMS Pune",
+    "Lateral Entry admissions available",
+    "MBA and MCA admissions available at AIMS Pune",
   ];
 
   return (
@@ -43,9 +43,20 @@ const mainMenu = [
   { label: "Courses", path: "/courses" },
  // { label: "Placement", path: "/placement" },
   { label: "Student", path: "/student" },
-  { label: "Research", path: "/research" },
   { label: "Accreditation-NAAC", path: "/naac" },
   { label: "Gallery", path: "/gallery" },
+];
+
+const researchMenu = [
+  {
+    label: "National Conference",
+    children: [
+      { label: "Abstract Book", path: "/pdf/national_conference.pdf", external: true },
+      { label: "Report", path: "/pdf/national_conference_report.pdf", external: true },
+    ],
+  },
+  { label: "Faculty Research Paper", path: "/pdf/faculty_research_papers.pdf", external: true },
+  { label: "Student Research Paper", path: "/pdf/student_research_papers.pdf", external: true },
 ];
 
 const moreMenu = [
@@ -64,24 +75,28 @@ const moreMenu = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const location = useLocation();
   const navRef = useRef(null);
 
   useEffect(() => {
     setIsOpen(false);
     setOpenDropdown(null);
+    setOpenSubDropdown(null);
   }, [location]);
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setOpenDropdown(null);
+        setOpenSubDropdown(null);
       }
     };
 
     const handleEscape = (event) => {
       if (event.key === "Escape") {
         setOpenDropdown(null);
+        setOpenSubDropdown(null);
       }
     };
 
@@ -179,6 +194,67 @@ const Navbar = () => {
 
           <div className="relative">
             <button
+              type="button"
+              onClick={() => setOpenDropdown(openDropdown === "research" ? null : "research")}
+              aria-expanded={openDropdown === "research"}
+              aria-haspopup="true"
+              className={`navBtn ${location.pathname.startsWith("/research") ? "activeNav" : ""}`}
+            >
+              Research
+            </button>
+            {openDropdown === "research" && (
+              <div className="absolute left-0 top-full z-50 mt-1 w-64 rounded-md border bg-white py-2 shadow-lg">
+                {researchMenu.map((item) =>
+                  item.children ? (
+                    <div key={item.label} className="relative">
+                      <button
+                        type="button"
+                        className="dropItem flex w-full items-center justify-between text-left"
+                        onClick={() => setOpenSubDropdown(openSubDropdown === item.label ? null : item.label)}
+                        aria-expanded={openSubDropdown === item.label}
+                      >
+                        <span>{item.label}</span>
+                        <span className="text-xs">&gt;</span>
+                      </button>
+                      {openSubDropdown === item.label && (
+                        <div className="absolute left-full top-0 z-50 ml-1 w-52 rounded-md border bg-white py-2 shadow-lg">
+                          {item.children.map((child) => (
+                            <a
+                              key={child.label}
+                              href={child.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="dropItem"
+                              onClick={() => {
+                                setOpenDropdown(null);
+                                setOpenSubDropdown(null);
+                              }}
+                            >
+                              {child.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <a
+                      key={item.label}
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="dropItem"
+                      onClick={() => setOpenDropdown(null)}
+                    >
+                      {item.label}
+                    </a>
+                  ),
+                )}
+              </div>
+            )}
+          </div>
+
+          <div className="relative">
+            <button
               className="navBtn"
               type="button"
               onClick={() => setOpenDropdown(openDropdown === "more" ? null : "more")}
@@ -222,6 +298,25 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+            <div className="mobileItem font-bold text-[#0a2a66]">
+              Research
+            </div>
+            {researchMenu.map((item) =>
+              item.children ? (
+                <div key={item.label}>
+                  <div className="mobileSubItem font-bold text-[#0a2a66]">{item.label}</div>
+                  {item.children.map((child) => (
+                    <a key={child.label} href={child.path} target="_blank" rel="noopener noreferrer" className="mobileSubSubItem">
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <a key={item.label} href={item.path} target="_blank" rel="noopener noreferrer" className="mobileSubItem">
+                  {item.label}
+                </a>
+              ),
+            )}
             {[...mainMenu, ...moreMenu].map((item) =>
               item.external ? (
                 <a key={item.path} href={item.path} target="_blank" rel="noopener noreferrer" className="mobileItem">
@@ -294,6 +389,7 @@ const Navbar = () => {
 
         .mobileItem,
         .mobileSubItem,
+        .mobileSubSubItem,
         .mobileContact {
           display: block;
           width: 100%;
@@ -308,6 +404,13 @@ const Navbar = () => {
           font-size: 14px;
           color: #4b5563;
           background: #f9fafb;
+        }
+
+        .mobileSubSubItem {
+          padding-left: 46px;
+          font-size: 14px;
+          color: #4b5563;
+          background: #fff;
         }
 
         .mobileContact {
