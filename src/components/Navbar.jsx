@@ -40,7 +40,7 @@ const aboutMenu = [
 ];
 
 const mainMenu = [
-  { label: "Courses", path: "/courses" },
+  { label: "Programs", path: "/courses" },
  // { label: "Placement", path: "/placement" },
   { label: "Student", path: "/student" },
   { label: "Accreditation-NAAC", path: "/naac" },
@@ -65,7 +65,6 @@ const moreMenu = [
   { label: "Academics", path: "/academics" },
   { label: "UDAN", path: "/udan" },
   { label: "Programs", path: "/programs" },
-  { label: "Events", path: "/events" },
   { label: "Notices", path: "/notices" },
   { label: "Blog", path: "/blog" },
   { label: "Career", path: "/career" },
@@ -134,13 +133,13 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/assets/logo2.png"
-              alt="Aditya Institute of Management Studies"
+              alt="Aditya Institute of Management - AIMS"
               className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
             />
           </Link>
 
           <div className="hidden lg:flex flex-col text-center flex-1 px-4">
-            <h2 className="font-bold text-[#0a2a66] text-2xl xl:text-3xl">
+            <h2 className="font-extrabold text-[#0a2a66] text-2xl xl:text-3xl">
               Aditya Institute of Management - AIMS
             </h2>
             <p className="text-sm xl:text-base text-gray-700">
@@ -341,11 +340,11 @@ const Navbar = () => {
           align-items: center;
           min-height: 38px;
           padding: 8px 12px;
-          font-weight: 600;
+          font-weight: 800;
           border-radius: 6px;
           color: #374151;
           transition: all 0.2s ease;
-          font-size: 13px;
+          font-size: 14px;
         }
 
         .navBtn:hover {

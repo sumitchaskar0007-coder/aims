@@ -4,7 +4,6 @@ import HeroSlider from '../components/HeroSlider';
 import Announcement from '../components/Announcement';
 import AdmissionPopup from '../components/AdmissionPopup';
 import { useEffect, useState, useRef } from 'react';
-import { dbApi } from '../lib/firebase';
 import { mbaSpecializations, mbaSyllabus } from '../data/websiteContent';
 
 // Enhanced Section component with scroll animation
@@ -175,57 +174,6 @@ function AnimatedProgramCard({ program }) {
         className="inline-block bg-primary text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition transform hover:scale-105"
       >
         Learn More →
-      </Link>
-    </div>
-  );
-}
-
-// Animated event card
-function AnimatedEventCard({ event, index }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-500 transform ${
-        isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-12'
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      <p className="text-xs uppercase text-primary font-bold mb-2">📅 {event.date}</p>
-      <h3 className="text-lg font-bold text-gray-900 mb-3">{event.title}</h3>
-      <p className="text-sm text-gray-600 line-clamp-3 mb-4">{event.description}</p>
-      <Link
-        to="/events"
-        className="text-primary text-sm font-semibold hover:underline inline-flex items-center gap-1 group"
-      >
-        View Details →
-        <span className="transform transition-transform group-hover:translate-x-1">→</span>
       </Link>
     </div>
   );
@@ -575,7 +523,7 @@ function HomeAboutPreview() {
           <p className="text-sm font-bold uppercase tracking-wide text-orange-400">About Us</p>
           <div className="mt-3 h-0.5 w-20 bg-orange-500"></div>
           <h2 className="mt-8 text-3xl font-extrabold md:text-4xl">
-            Aditya Institute of Management Studies, Pune
+            Aditya Institute of Management - AIMS, Pune
           </h2>
           <p className="mt-6 text-base leading-8 text-blue-50 md:text-lg">
             AIMS is a management institute in Narhe, Pune, guided by the Jadhavar Group's
@@ -704,22 +652,10 @@ function AnimatedCTA() {
 }
 
 export default function Home() {
-  const [events, setEvents] = useState([]);
   const [isHeroVisible, setIsHeroVisible] = useState(false);
   const heroRef = useRef(null);
 
   useEffect(() => {
-    const load = async () => {
-      try {
-        const snap = await dbApi.getDocs(dbApi.collection(dbApi.db, 'events'));
-        const data = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-        setEvents(data.slice(0, 3));
-      } catch (err) {
-        console.error('Events load failed', err);
-      }
-    };
-    load();
-
     // Observe hero section for entrance animation
     const heroObserver = new IntersectionObserver(
       ([entry]) => {
@@ -753,7 +689,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>AIMS Pune | MBA/MCA | AICTE & NAAC Accredited</title>
-        <meta name="description" content="Aditya Institute of Management Studies (AIMS) - AICTE approved, NAAC accredited MBA, MCA programs with 95% placement rate and industry mentoring." />
+        <meta name="description" content="Aditya Institute of Management - AIMS, AICTE approved, NAAC accredited MBA, MCA programs with 95% placement rate and industry mentoring." />
         <meta name="keywords" content="MBA, MCA, management education, Pune, AICTE, NAAC accredited" />
         <meta name="author" content="AIMS Pune" />
         <meta property="og:title" content="AIMS Pune | MBA & MCA Programs" />
@@ -805,7 +741,7 @@ export default function Home() {
 
       <Section
         title="Our Programs"
-        cta={{ label: 'Explore All Courses', href: '/courses' }}
+        cta={{ label: 'Explore All Programs', href: '/courses' }}
         id="programs"
       >
         <div className="flex justify-center">
@@ -819,24 +755,6 @@ export default function Home() {
               }}
             />
           </div>
-        </div>
-      </Section>
-
-      <Section
-        title="Upcoming Events"
-        cta={{ label: 'View all Events', href: '/events' }}
-        id="events"
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          {events.length ? (
-            events.map((event, index) => (
-              <AnimatedEventCard key={event.id} event={event} index={index} />
-            ))
-          ) : (
-            <p className="text-sm text-gray-600 col-span-3 text-center py-8">
-              No upcoming events. Check back soon!
-            </p>
-          )}
         </div>
       </Section>
 

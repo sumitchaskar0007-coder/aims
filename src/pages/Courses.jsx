@@ -1,11 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import {
   mbaDegreeCredits,
   mbaProgrammeDetails,
   mbaProgrammeIntro,
   mbaProgrammeStructure,
   mbaSpecializations,
+  mcaSpecializations,
   mbaSyllabus,
 } from '../data/websiteContent';
 
@@ -13,17 +15,64 @@ const mbaSyllabusUrl =
   'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FINAL%20MBA_Syllabus_2024_Pattern_NEP_2020_27.03.2025_29032025.pdf';
 
 export default function Courses() {
+  const [activeProgram, setActiveProgram] = useState('MBA');
+  const isMca = activeProgram === 'MCA';
+  const programSpecializations = isMca ? mcaSpecializations : mbaSpecializations;
+  const programIntro = isMca
+    ? 'AIMS offers a two years full-time MCA program for students who want to build strong careers in computer applications, software development, data-driven technology and modern IT services.'
+    : mbaProgrammeIntro;
+  const programDetails = isMca
+    ? 'The MCA program focuses on programming foundations, application development, databases, analytics, emerging technologies, projects and professional readiness through a structured academic and practical learning approach.'
+    : mbaProgrammeDetails;
+  const programObjectives = isMca
+    ? [
+        {
+          title: 'Technical Foundation',
+          desc: 'Build strong knowledge of computer applications, software engineering, databases and programming practices.'
+        },
+        {
+          title: 'Industry Readiness',
+          desc: 'Prepare students for modern IT roles through projects, practical exposure and technology-focused learning.'
+        },
+        {
+          title: 'Problem Solving',
+          desc: 'Develop analytical thinking, logical reasoning and solution design skills for real business and technology needs.'
+        },
+        {
+          title: 'Professional Growth',
+          desc: 'Strengthen communication, teamwork, ethics and lifelong learning for successful technology careers.'
+        },
+      ]
+    : [
+        {
+          title: 'Competency Development',
+          desc: 'Provide necessary knowledge, skills, values, and attitude to succeed in management & administration sectors'
+        },
+        {
+          title: 'Latest Practices',
+          desc: 'Inculcate contemporary management theories and best industry practices'
+        },
+        {
+          title: 'Managerial Skills',
+          desc: 'Offer opportunities to develop practical managerial and leadership capabilities'
+        },
+        {
+          title: 'Values & Vision',
+          desc: 'Develop right values and vision to function effectively in corporate and global environment'
+        },
+      ];
+
   return (
     <>
       <Helmet>
-        <title>MBA/MCA Courses | AIMS Pune | Program Details & Specializations</title>
+        <title>MBA/MCA Programs | AIMS Pune | Program Details & Specializations</title>
         <meta
           name="description"
           content="Explore AIMS MBA/MCA programs with AICTE approved learning, industry exposure and career-focused preparation."
         />
-        <meta name="keywords" content="MBA courses, MCA courses, MBA/MCA specializations, course curriculum, AIMS MBA/MCA" />
+        <meta name="keywords" content="MBA programs, MCA programs, MBA/MCA specializations, program curriculum, AIMS MBA/MCA" />
         <meta name="author" content="AIMS Pune" />
-        <meta property="og:title" content="MBA/MCA Courses | AIMS Pune" />
+        <meta property="og:title" content="MBA/MCA Programs | AIMS Pune" />
         <meta property="og:description" content="Discover AIMS MBA/MCA specializations and program details" />
         <link rel="canonical" href="https://adityainstitutemanagement.com" />
       </Helmet>
@@ -34,7 +83,7 @@ export default function Courses() {
           <div className="container-wide">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">MBA/MCA Courses</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4">MBA/MCA Programs</h1>
                 <p className="text-lg text-blue-100 max-w-2xl">
                   Comprehensive MBA and MCA programs with industry-focused learning designed for career excellence
                 </p>
@@ -53,11 +102,29 @@ export default function Courses() {
         {/* QUICK STATS */}
         <section className="bg-gray-50 py-12 px-4">
           <div className="container-wide">
+            <div className="mb-8 flex justify-center">
+              <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1 shadow-sm">
+                {['MBA', 'MCA'].map((program) => (
+                  <button
+                    key={program}
+                    type="button"
+                    onClick={() => setActiveProgram(program)}
+                    className={`min-w-28 rounded-md px-6 py-3 text-base font-extrabold transition ${
+                      activeProgram === program
+                        ? 'bg-[#0a2a66] text-white'
+                        : 'text-gray-700 hover:bg-yellow-100 hover:text-[#0a2a66]'
+                    }`}
+                  >
+                    {program}
+                  </button>
+                ))}
+              </div>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { label: 'Program Duration', value: '2 Years', desc: 'Full-Time' },
-                { label: 'Semesters', value: '4', desc: 'MBA Pattern' },
-                { label: 'Specializations', value: '7', desc: 'Career Tracks' },
+                { label: 'Semesters', value: '4', desc: `${activeProgram} Pattern` },
+                { label: 'Specializations', value: String(programSpecializations.length), desc: 'Career Tracks' },
                 { label: 'University', value: 'SPPU', desc: 'Affiliated' },
               ].map((stat, index) => (
                 <div key={index} className="bg-white rounded-lg p-6 text-center border border-gray-200 hover:border-primary hover:shadow-lg transition">
@@ -78,7 +145,7 @@ export default function Courses() {
             <div>
               <img
                 src="/assets/program1.jpg"
-                alt="MBA and MCA Program"
+                alt={`${activeProgram} Program`}
                 className="rounded-xl shadow-lg w-full h-96 object-cover"
                 loading="lazy"
               />
@@ -86,12 +153,12 @@ export default function Courses() {
 
             <div className="space-y-6">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border-l-4 border-primary">
-                <h3 className="font-bold text-gray-900 mb-3 text-lg">About AIMS MBA/MCA</h3>
+                <h3 className="font-bold text-gray-900 mb-3 text-lg">About AIMS {activeProgram}</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  {mbaProgrammeIntro}
+                  {programIntro}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  {mbaProgrammeDetails}
+                  {programDetails}
                 </p>
               </div>
 
@@ -108,7 +175,7 @@ export default function Courses() {
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary font-bold">-</span>
-                    <span>7 MBA specialization options</span>
+                    <span>{programSpecializations.length} {activeProgram} specialization options</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary font-bold">-</span>
@@ -126,24 +193,7 @@ export default function Courses() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Program Objectives</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: 'Competency Development',
-                  desc: 'Provide necessary knowledge, skills, values, and attitude to succeed in management & administration sectors'
-                },
-                {
-                  title: 'Latest Practices',
-                  desc: 'Inculcate contemporary management theories and best industry practices'
-                },
-                {
-                  title: 'Managerial Skills',
-                  desc: 'Offer opportunities to develop practical managerial and leadership capabilities'
-                },
-                {
-                  title: 'Values & Vision',
-                  desc: 'Develop right values and vision to function effectively in corporate and global environment'
-                },
-              ].map((obj, index) => (
+              {programObjectives.map((obj, index) => (
                 <div key={index} className="bg-white rounded-xl p-8 border border-gray-200 hover:border-primary hover:shadow-lg transition">
                   <div className="flex items-start gap-4">
                     <div className="text-3xl font-bold text-primary">{index + 1}</div>
@@ -205,9 +255,9 @@ export default function Courses() {
           <div className="container-wide">
             <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">MBA Programme Structure as per NEP</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{activeProgram} Program Structure</h2>
                 <p className="mt-3 max-w-3xl text-gray-600">
-                  Semester-wise course type, credits and assessment structure for the MBA programme.
+                  Semester-wise program type, credits and assessment structure for the {activeProgram} program.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -227,7 +277,7 @@ export default function Courses() {
               <table className="min-w-[920px] w-full text-sm">
                 <thead className="bg-[#0a2a66] text-white">
                   <tr>
-                    {['Type', 'Semester', 'Course Type', 'Courses', 'Credits', 'Total Credits', 'FA', 'SA', 'Total'].map((heading) => (
+                    {['Type', 'Semester', 'Program Type', 'Programs', 'Credits', 'Total Credits', 'FA', 'SA', 'Total'].map((heading) => (
                       <th key={heading} className="px-4 py-3 text-left font-bold">{heading}</th>
                     ))}
                   </tr>
@@ -249,7 +299,7 @@ export default function Courses() {
                 <div key={row[0]} className="rounded-lg border border-blue-100 bg-blue-50 p-5">
                   <h3 className="font-bold text-gray-900">{row[0]}</h3>
                   <p className="mt-2 text-sm text-gray-700">
-                    Courses: <span className="font-bold">{row[1]}</span> | Credits: <span className="font-bold">{row[2]}</span> | Total Marks: <span className="font-bold">{row[5]}</span>
+                    Programs: <span className="font-bold">{row[1]}</span> | Credits: <span className="font-bold">{row[2]}</span> | Total Marks: <span className="font-bold">{row[5]}</span>
                   </p>
                 </div>
               ))}
@@ -261,9 +311,9 @@ export default function Courses() {
         <section className="bg-gray-50 py-16 md:py-20 px-4">
           <div className="container-wide">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">MBA Specializations</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{activeProgram} Specializations</h2>
               <p className="mx-auto mt-3 max-w-3xl text-gray-600">
-                Select a career-focused specialization aligned with the MBA syllabus and NEP 2020 pattern.
+                Select a career-focused specialization aligned with the {activeProgram} program.
               </p>
               <a
                 href={mbaSyllabusUrl}
@@ -276,7 +326,7 @@ export default function Courses() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {mbaSpecializations.map((name, index) => {
+              {programSpecializations.map((name, index) => {
                 const colors = [
                   'from-blue-600 to-blue-700',
                   'from-green-600 to-teal-700',
@@ -291,7 +341,7 @@ export default function Courses() {
                 <div key={name} className={`bg-gradient-to-br ${colors[index]} text-white rounded-xl p-8 hover:shadow-xl transition-transform hover:scale-105`}>
                   <h3 className="text-xl font-bold mb-3">{name}</h3>
                   <p className="text-sm leading-relaxed opacity-95">
-                    Specialized MBA learning track aligned with current industry and career pathways.
+                    Specialized {activeProgram} learning track aligned with current industry and career pathways.
                   </p>
                   <Link
                     to="/contact"
@@ -316,21 +366,21 @@ export default function Courses() {
               <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition">
                 <h4 className="font-bold text-gray-900 mb-3">Academic Qualification</h4>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Bachelor's degree in any discipline from a recognized university with minimum 50% aggregate (45% for SC/ST candidates)
+                  Bachelor's degree from a recognized university with minimum 50% aggregate for open category and 45% aggregate for reserve category.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition">
                 <h4 className="font-bold text-gray-900 mb-3">Entrance Test</h4>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Valid score in CAT, MAT, XAT, CMAT, or AIMS Entrance Test (GMAT accepted for international candidates)
+                  MHCET score is considered first for admissions. Valid CET/entrance score as applicable for MBA or MCA admission is required.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition">
                 <h4 className="font-bold text-gray-900 mb-3">Work Experience</h4>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Minimum 2-3 years of professional experience preferred (not mandatory for fresh graduates)
+                  Work experience is preferred for management applicants, but it is not mandatory for fresh graduates.
                 </p>
               </div>
             </div>
@@ -386,7 +436,7 @@ export default function Courses() {
                 </div>
                 <div className="p-8 text-center">
                   <p className="text-sm font-bold uppercase tracking-wide text-gray-500">MBA/MCA Fees</p>
-                  <p className="mt-3 text-5xl font-extrabold text-primary">Rs. 79,200</p>
+                  <p className="mt-3 text-5xl font-extrabold text-primary">Rs. 78,000/-</p>
                   <p className="mt-3 text-sm text-gray-600">Contact the admissions office for payment and scholarship guidance.</p>
                 </div>
               </div>
@@ -446,11 +496,11 @@ export default function Courses() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Core Courses',
+                title: 'Core Programs',
                 items: ['Management Fundamentals', 'Financial Accounting', 'Business Statistics', 'Organizational Behavior', 'Marketing Essentials']
               },
               {
-                title: 'Advanced Courses',
+                title: 'Advanced Programs',
                 items: ['Strategic Management', 'International Business', 'Corporate Finance', 'Digital Marketing', 'Business Analytics']
               },
               {

@@ -80,10 +80,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About AIMS Pune | Aditya Institute of Management Studies</title>
+        <title>About AIMS Pune | Aditya Institute of Management - AIMS</title>
         <meta
           name="description"
-          content="About Aditya Institute of Management Studies Pune, The Jadhavar Group, vision and mission, leadership, campus and Pune advantage."
+          content="About Aditya Institute of Management - AIMS Pune, The Jadhavar Group, vision and mission, leadership, campus and Pune advantage."
         />
       </Helmet>
 
@@ -97,7 +97,7 @@ export default function About() {
           <div className="relative container-wide py-16 md:py-20">
             <p className="text-sm font-bold uppercase tracking-wide text-yellow-300">About AIMS</p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold">
-              Aditya Institute of Management Studies, Pune
+              Aditya Institute of Management - AIMS, Pune
             </h1>
             <p className="mt-5 max-w-3xl text-lg text-blue-50 leading-relaxed">
               AIMS is a management institute in Narhe, Pune, guided by the Jadhavar Group's
@@ -174,7 +174,7 @@ export default function About() {
               <img
                 src="/assets/owner.jpeg"
                 alt="Prin. Dr. Sudhakarrao Jadhavar"
-                className="mx-auto h-72 w-full max-w-64 rounded-lg border border-gray-200 bg-gray-50 object-contain p-3"
+                className="mx-auto aspect-square w-full max-w-72 border border-gray-200 bg-gray-50 object-cover"
               />
               <h3 className="mt-5 text-2xl font-bold text-gray-900">Prin. Dr. Sudhakarrao Jadhavar</h3>
               <p className="mt-1 text-sm font-semibold text-primary">Founder President & Chairman</p>
@@ -219,7 +219,7 @@ export default function About() {
                 <img
                   src="/assets/Shardul_jadhavar.jpeg"
                   alt="Adv. Shardul Sudhakarrao Jadhavar"
-                  className="mx-auto h-72 w-full max-w-64 rounded-lg border border-gray-200 bg-gray-50 object-contain p-3"
+                  className="mx-auto aspect-square w-full max-w-72 border border-gray-200 bg-gray-50 object-cover"
                 />
                 <h3 className="mt-5 text-2xl font-bold text-gray-900">Adv. Shardul S. Jadhavar</h3>
                 <p className="mt-1 text-sm font-semibold text-primary">Vice President</p>

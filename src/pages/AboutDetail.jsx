@@ -328,13 +328,12 @@ function LeadershipProfile({ page }) {
                 </div>
               </div>
 
-              <div className="relative mx-auto w-full max-w-md">
-                <div className="absolute -right-8 -top-8 h-72 w-72 rounded-full border-4 border-[#f25a1d]"></div>
+              <div className="relative mx-auto w-full max-w-sm">
                 <div className="relative border-4 border-[#f25a1d] bg-white p-4 shadow-xl">
                   <img
                     src={page.image}
                     alt={page.alt}
-                    className="h-96 w-full bg-gray-50 object-contain p-3"
+                    className="aspect-square w-full bg-gray-50 object-cover"
                     loading="lazy"
                   />
                 </div>

@@ -33,7 +33,6 @@ import Courses from "./pages/Courses";
 import Academics from "./pages/Academics";
 import Udan from "./pages/Udan";
 import Programs from "./pages/Programs";
-import Events from "./pages/Events";
 import Placement from "./pages/Placement";
 import Student from "./pages/Student";
 import Research from "./pages/Research";
@@ -95,7 +94,6 @@ function App() {
               <Route path="/academics" element={<Academics />} />
               <Route path="/udan" element={<Udan />} />
               <Route path="/programs" element={<Programs />} />
-              <Route path="/events" element={<Events />} />
               <Route path="/placement" element={<Placement />} />
               <Route path="/student" element={<Student />} />
               <Route path="/research" element={<Research />} />

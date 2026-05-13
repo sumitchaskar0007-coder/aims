@@ -8,8 +8,17 @@ export const mbaSpecializations = [
   "Pharma & Healthcare Management",
 ];
 
+export const mcaSpecializations = [
+  "Software Development",
+  "Data Science",
+  "Artificial Intelligence",
+  "Cyber Security",
+  "Cloud Computing",
+  "Full Stack Development",
+];
+
 export const mbaProgrammeIntro =
-  "AIM offers a two years full-time MBA program approved by All India Council for Technical Education (AICTE), DTE, Ministry of HRD, Government of India, New Delhi, recognized by Government of Maharashtra and affiliated to Savitribai Phule Pune University. The MBA program has four semesters and is aimed at transforming young graduates into successful and effective business leaders in the global domain.";
+  "AIMS offers a two years full-time MBA program approved by All India Council for Technical Education (AICTE), DTE, Ministry of HRD, Government of India, New Delhi, recognized by Government of Maharashtra and affiliated to Savitribai Phule Pune University. The MBA program has four semesters and is aimed at transforming young graduates into successful and effective business leaders in the global domain.";
 
 export const mbaProgrammeDetails =
   "This comprehensive program builds young thinking minds with the power to shape their paths and influence change. It enhances depth of understanding, analytical rigor, independence of thought, commitment, cooperation, competition, integrity and innovation through a well-crafted mix of curricular and co-curricular activities delivered by experts from academia and industry.";
