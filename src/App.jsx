@@ -77,7 +77,7 @@ function App() {
       <ScrollAnimator />
 
       {/* Main Page */}
-      <main className="site-animated flex-1 pt-28 md:pt-32">
+      <main className="site-animated flex-1 pt-28 md:pt-32 xl:pt-48">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

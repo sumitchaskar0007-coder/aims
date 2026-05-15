@@ -435,8 +435,8 @@ export default function Courses() {
                   <h3 className="text-xl font-bold">Fee Structure</h3>
                 </div>
                 <div className="p-8 text-center">
-                  <p className="text-sm font-bold uppercase tracking-wide text-gray-500">MBA/MCA Fees</p>
-                  <p className="mt-3 text-5xl font-extrabold text-primary">Rs. 78,000/-</p>
+                  <p className="text-sm font-bold uppercase tracking-wide text-gray-500">MBA Fees</p>
+                  <p className="mt-3 text-5xl font-extrabold text-primary">Rs. 89,000/-</p>
                   <p className="mt-3 text-sm text-gray-600">Contact the admissions office for payment and scholarship guidance.</p>
                 </div>
               </div>
