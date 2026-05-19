@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { dbApi } from '../lib/firebase';
+import API from '../api';
 
 export default function AnnouncementTicker() {
   const [items, setItems] = useState([]);
@@ -8,10 +8,10 @@ export default function AnnouncementTicker() {
   useEffect(() => {
     const load = async () => {
       try {
-        const snap = await dbApi.getDocs(dbApi.collection(dbApi.db, 'announcements'));
-        const data = snap.docs
-          .map((d) => ({ id: d.id, ...d.data() }))
-          .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+        const response = await API.get('/announcements');
+        const data = response.data
+          .slice()
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
         setItems(data);
       } catch (err) {
         console.error('Announcements load failed', err);
@@ -29,7 +29,7 @@ export default function AnnouncementTicker() {
         <div className="flex-1 overflow-hidden">
           <div className="animate-marquee whitespace-nowrap">
             {items.map((item) => (
-              <Link key={item.id} to={item.link || '#'} className="mr-8 hover:underline">
+              <Link key={item._id} to={item.link || '/announcements'} className="mr-8 hover:underline">
                 {item.title}
               </Link>
             ))}

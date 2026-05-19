@@ -62,7 +62,7 @@ const researchMenu = [
 
 const moreMenu = [
   { label: "AICTE LOA", path: "/pdf/LOA.pdf", external: true },
-  { label: "Prospectus", path: "/pdf/mba_mca_br.pdf", external: true },
+  { label: "Prospectus", path: "/pdf/prospectus.pdf", external: true },
   { label: "UDAN", path: "/udan" },
   { label: "Notices", path: "/notices" },
   { label: "Blog", path: "/blog" },
@@ -142,9 +142,11 @@ const Navbar = () => {
               Aditya Institute of Management - AIMS
             </h2>
             <p className="text-sm 2xl:text-base text-gray-700">
-              Approved by AICTE New Delhi & DTE Maharashtra
+              Affiliated to Savitribai Phule Pune University | Approved by AICTE, New Delhi
             </p>
-            <p className="text-sm 2xl:text-base font-semibold text-[#0a2a66]">NAAC Accredited "B"</p>
+            <p className="text-sm 2xl:text-base font-semibold text-[#0a2a66]">
+              NAAC Accredited "B" <span className="mx-2 text-gray-400">|</span> DTE CODE MB6197
+            </p>
           </div>
 
           <button
@@ -162,6 +164,18 @@ const Navbar = () => {
           </button>
         </div>
 
+        <div className="mt-3 xl:hidden text-center">
+          <h2 className="font-extrabold text-[#0a2a66] text-base sm:text-lg">
+            Aditya Institute of Management - AIMS
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-700">
+            Affiliated to Savitribai Phule Pune University | Approved by AICTE, New Delhi
+          </p>
+          <p className="text-xs sm:text-sm font-semibold text-[#0a2a66]">
+            NAAC Accredited "B" <span className="mx-1 text-gray-400">|</span> DTE CODE MB6197
+          </p>
+        </div>
+
         <div className="hidden xl:flex flex-wrap justify-center items-center gap-1.5 mt-3">
           {renderLink({ label: "Home", path: "/" })}
 
@@ -176,13 +190,13 @@ const Navbar = () => {
               About Us
             </button>
             {openDropdown === "about" && (
-            <div className="absolute left-0 top-full z-50 mt-1 w-72 rounded-md border bg-white py-2 shadow-lg">
-              {aboutMenu.map((item) => (
-                <Link key={item.path} to={item.path} className="dropItem" onClick={() => setOpenDropdown(null)}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+              <div className="absolute left-0 top-full z-50 mt-1 w-72 rounded-md border bg-white py-2 shadow-lg">
+                {aboutMenu.map((item) => (
+                  <Link key={item.path} to={item.path} className="dropItem" onClick={() => setOpenDropdown(null)}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             )}
           </div>
 
@@ -262,11 +276,11 @@ const Navbar = () => {
               More
             </button>
             {openDropdown === "more" && (
-            <div className="absolute left-0 top-full z-50 mt-1 w-56 rounded-md border bg-white py-2 shadow-lg">
-              {moreMenu.map((item) => (
-                <span key={item.path} onClick={() => setOpenDropdown(null)}>{renderLink(item, "dropItem")}</span>
-              ))}
-            </div>
+              <div className="absolute left-0 top-full z-50 mt-1 w-56 rounded-md border bg-white py-2 shadow-lg">
+                {moreMenu.map((item) => (
+                  <span key={item.path} onClick={() => setOpenDropdown(null)}>{renderLink(item, "dropItem")}</span>
+                ))}
+              </div>
             )}
           </div>
 

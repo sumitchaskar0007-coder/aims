@@ -36,14 +36,14 @@ export default function About() {
   ];
 
   const secretaryMessageParagraphs = [
-    "Dear Researchers, it is a matter of great pleasure and pride that the MBA and PGDM programs at Aditya Institute of Management - AIMS, Prin. Dr. Sudhakarrao Jadhavar Educational Campus, Manaji Nagar, Narhe, Pune, are recognized among the prestigious institutes in Pune city.",
+    "Dear Students, it is a matter of great pleasure and pride that the MBA and PGDM programs at Aditya Institute of Management - AIMS, Prin. Dr. Sudhakarrao Jadhavar Educational Campus, Manaji Nagar, Narhe, Pune, are recognized among the prestigious institutes in Pune city.",
     "I implore all members of the faculty to follow a path of ethically oriented and socially relevant education so that the institute can play a pivotal role in creating and disseminating knowledge, educating a highly skilled workforce for technological and intellectual leadership, and enhancing the competitiveness of society in the emerging knowledge economy.",
     "AIMS, with this goal in mind, will offer postgraduate courses as per the syllabus designed by Savitribai Phule Pune University. I am confident that AIMS will live up to the expectations of today's corporate world and help the nation and society fulfill the dream of becoming a superpower by creating empowered managers and entrepreneurs of high caliber.",
     "I wish heartiest congratulations to students, teacher-educators and members of staff. Wish you all the best.",
   ];
 
   const presidentMessageParagraphs = [
-    "Dear Researchers, it is my pride, pleasure and privilege to welcome you to our renowned educational management institute. Efficient business administration has become a norm of today's competitive world and has touched and transformed our lives across society and industry.",
+    "Dear Students, it is my pride, pleasure and privilege to welcome you to our renowned educational management institute. Efficient business administration has become a norm of today's competitive world and has touched and transformed our lives across society and industry.",
     "To fulfill the dream of making our country a superpower, we need quality managers and new entrepreneurs. Aditya Educational Foundation has recognized and addressed this need through AIMS by creating knowledgeable and empowered leaders for the corporate world.",
     "AIMS has a student-centric approach that will bring all-round development of students and empower them to face the challenges of a highly competitive world. Our aim is to harness every student's potential, enhance skills to perfection and build professional leaders with high academic aptitude through advanced teaching methods.",
     "The faculty at AIMS are meticulously chosen. They will not merely impart knowledge, but will also imbibe ambition in students and strive to extract the best in each student. AIMS will offer postgraduate courses as per the syllabus designed by Savitribai Phule Pune University.",
@@ -174,7 +174,7 @@ export default function About() {
               <img
                 src="/assets/owner.jpeg"
                 alt="Prin. Dr. Sudhakarrao Jadhavar"
-                className="mx-auto aspect-square w-full max-w-72 border border-gray-200 bg-gray-50 object-cover"
+                className="mx-auto h-96 w-full max-w-80 border border-gray-200 bg-gray-50 object-contain object-top p-2"
               />
               <h3 className="mt-5 text-2xl font-bold text-gray-900">Prin. Dr. Sudhakarrao Jadhavar</h3>
               <p className="mt-1 text-sm font-semibold text-primary">Founder President & Chairman</p>
@@ -188,7 +188,7 @@ export default function About() {
                 contributor to academic administration, institutional governance and student
                 development.
               </InfoCard>
-              <InfoCard title="Message">
+              <InfoCard title="Founder Message">
                 <div className="space-y-4">
                   {secretaryMessageParagraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>

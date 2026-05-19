@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -77,7 +77,7 @@ function App() {
       <ScrollAnimator />
 
       {/* Main Page */}
-      <main className="site-animated flex-1 pt-28 md:pt-32 xl:pt-48">
+      <main className="site-animated flex-1 pt-44 md:pt-52 xl:pt-52">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

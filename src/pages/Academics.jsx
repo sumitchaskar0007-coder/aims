@@ -117,6 +117,47 @@ export default function Academics() {
               )}
             </div>
 
+            {/* MCA SYLLABUS SECTION */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+              <button
+                onClick={() => toggleSection('mcaSyllabus')}
+                className="w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-cyan-50 to-cyan-100 hover:from-cyan-100 hover:to-cyan-200 transition"
+              >
+                <div className="flex items-center gap-4 text-left flex-1">
+                  <h3 className="text-xl font-bold text-gray-900">MCA Program Syllabus</h3>
+                </div>
+                <span className={`text-3xl font-bold text-primary transition-transform duration-300 ${expandedSections.mcaSyllabus ? 'rotate-45' : ''}`}>
+                  +
+                </span>
+              </button>
+
+              {expandedSections.mcaSyllabus && (
+                <div className="px-8 py-8 bg-white border-t border-gray-200 space-y-6 animate-in fade-in duration-300">
+                  <p className="text-gray-700 leading-relaxed">
+                    Semester-wise MCA syllabus information is available as per Savitribai Phule Pune University guidelines.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      'Programming and problem solving',
+                      'Database management systems',
+                      'Web technologies and application development',
+                      'Software engineering and project work',
+                    ].map((item) => (
+                      <div key={item} className="rounded-lg border border-cyan-100 bg-cyan-50 p-5 font-semibold text-gray-800">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    to="/contact"
+                    className="inline-block rounded-md bg-[#0a2a66] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800"
+                  >
+                    Request MCA Syllabus
+                  </Link>
+                </div>
+              )}
+            </div>
+
             {/* MBA SPECIALIZATIONS SECTION */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
               <button
@@ -462,8 +503,8 @@ export default function Academics() {
               )}
             </div>
 
-            {/* SCHOLARSHIPS SECTION */}
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+            {/* SCHOLARSHIPS SECTION REMOVED */}
+            <div className="hidden">
               <button
                 onClick={() => toggleSection('scholarships')}
                 className="w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-yellow-50 to-yellow-100 hover:from-yellow-100 hover:to-yellow-200 transition"

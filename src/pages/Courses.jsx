@@ -14,33 +14,106 @@ import {
 const mbaSyllabusUrl =
   'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FINAL%20MBA_Syllabus_2024_Pattern_NEP_2020_27.03.2025_29032025.pdf';
 
+const mcaCourseStructure = [
+  { semester: 'Semester I', credits: 26, ue: 300, ie: 300 },
+  { semester: 'Semester II', credits: 26, ue: 300, ie: 300 },
+  { semester: 'Semester III', credits: 25, ue: 250, ie: 300 },
+  { semester: 'Semester IV', credits: 18, ue: 300, ie: 250 },
+];
+
+const mbaCourseStructureSummary = [
+  { semester: 'Semester I', credits: 26, ue: 400, ie: 400 },
+  { semester: 'Semester II', credits: 26, ue: 400, ie: 400 },
+  { semester: 'Semester III', credits: 25, ue: 400, ie: 400 },
+  { semester: 'Semester IV', credits: 18, ue: 400, ie: 400 },
+];
+
+const mcaIntakeInformation = {
+  programme: 'Master of Computer Application (MCA)',
+  academicYear: '2025 - 26',
+  approvedIntake: 120,
+  note: 'Intake is subject to revision as per AICTE, DTE Maharashtra, and SPPU guidelines.',
+};
+
+const mcaCareerOpportunities = [
+  'Software Developer / Software Engineer',
+  'Web & Full Stack Developer',
+  'Database Administrator',
+  'Network & System Administrator',
+  'Data Analyst / Data Scientist',
+  'Project Manager & IT Consultant',
+  'Marketing Manager',
+  'Financial Analyst',
+  'HR Manager',
+  'Business Analyst',
+  'Operations Manager',
+  'Entrepreneur',
+];
+
+const mcaProgramSections = [
+  {
+    title: 'Curriculum & Structure',
+    desc: 'The MCA program follows a semester pattern consisting of four semesters, combining core computer science subjects, electives, practical labs, projects, and industry-oriented learning.',
+  },
+  {
+    title: 'Teaching-Learning Methodology',
+    desc: 'Learning is delivered through lectures, hands-on lab sessions, case studies, live projects, seminars, workshops, and technology-enabled teaching to strengthen conceptual and practical knowledge.',
+  },
+  {
+    title: 'Assessment & Evaluation',
+    desc: 'Students are evaluated through internal assessments, end-semester university examinations, practical evaluations, mini projects, and final-year internship/project work.',
+  },
+  {
+    title: 'Practical & Project-Based Learning',
+    desc: 'Strong emphasis on programming labs, mini projects, research projects, and a full-semester internship ensures real-world exposure and industry readiness.',
+  },
+  {
+    title: 'Industry Exposure & Internships',
+    desc: 'Final semester internship (OJT/FP) provides hands-on experience in software companies, startups, banks, IT consultancies, and corporate organizations.',
+  },
+  {
+    title: 'Research & Innovation',
+    desc: 'Students are encouraged to undertake research projects, publish papers, and participate in innovation, entrepreneurship development, and technical competitions.',
+  },
+  {
+    title: 'Global & Emerging Technologies',
+    desc: 'Electives in Cloud Computing, AI & ML, Cyber Security, Data Science, MERN Stack, ERP, and E-Commerce prepare students for global IT demands.',
+  },
+];
+
 export default function Courses() {
   const [activeProgram, setActiveProgram] = useState('MBA');
   const isMca = activeProgram === 'MCA';
   const programSpecializations = isMca ? mcaSpecializations : mbaSpecializations;
+  const programTotalCredits = isMca ? '95' : '104';
+  const programTotalMarks = isMca ? '2300' : '3200';
   const programIntro = isMca
-    ? 'AIMS offers a two years full-time MCA program for students who want to build strong careers in computer applications, software development, data-driven technology and modern IT services.'
+    ? 'The Master of Computer Application (MCA/MBA) is a two-year full-time program approved by AICTE, recognized by Government of Maharashtra (DTE) and affiliated to Savitribai Phule Pune University (SPPU).'
     : mbaProgrammeIntro;
   const programDetails = isMca
-    ? 'The MCA program focuses on programming foundations, application development, databases, analytics, emerging technologies, projects and professional readiness through a structured academic and practical learning approach.'
+    ? 'The MCA/MBA program aims to provide a strong foundation in computer science, software development, and emerging technologies. The curriculum blends theory, practical training, curricular and co-curricular activities to develop skilled IT professionals and responsible technocrats.'
     : mbaProgrammeDetails;
   const programObjectives = isMca
     ? [
         {
-          title: 'Technical Foundation',
-          desc: 'Build strong knowledge of computer applications, software engineering, databases and programming practices.'
+          title: 'Computer Science Foundation',
+          desc: 'Build strong foundations in computer science and programming.'
         },
         {
-          title: 'Industry Readiness',
-          desc: 'Prepare students for modern IT roles through projects, practical exposure and technology-focused learning.'
+          title: 'IT Career Preparation',
+          desc: 'Prepare students for IT roles such as Software Developer, Data Scientist and System Analyst.'
         },
         {
-          title: 'Problem Solving',
-          desc: 'Develop analytical thinking, logical reasoning and solution design skills for real business and technology needs.'
+          title: 'Leadership & Communication',
+          desc: 'Develop leadership, communication, and management skills.'
         },
         {
-          title: 'Professional Growth',
-          desc: 'Strengthen communication, teamwork, ethics and lifelong learning for successful technology careers.'
+          title: 'Innovation & Lifelong Learning',
+          desc: 'Encourage innovation, entrepreneurship, and lifelong learning.'
+        },
+        {
+          title: 'Professional Competence',
+          desc: 'Provide industry-ready technical and professional competence.'
         },
       ]
     : [
@@ -89,7 +162,7 @@ export default function Courses() {
                 </p>
               </div>
               <a
-                href="/pdf/mba_mca_br.pdf"
+                href="/pdf/prospectus.pdf"
                 download
                 className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-bold hover:bg-yellow-300 transition-colors whitespace-nowrap"
               >
@@ -123,8 +196,8 @@ export default function Courses() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { label: 'Program Duration', value: '2 Years', desc: 'Full-Time' },
-                { label: 'Semesters', value: '4', desc: `${activeProgram} Pattern` },
-                { label: 'Specializations', value: String(programSpecializations.length), desc: 'Career Tracks' },
+                { label: 'Total Credits', value: programTotalCredits, desc: `${activeProgram} Structure` },
+                { label: 'Total Marks', value: programTotalMarks, desc: 'UE + IE' },
                 { label: 'University', value: 'SPPU', desc: 'Affiliated' },
               ].map((stat, index) => (
                 <div key={index} className="bg-white rounded-lg p-6 text-center border border-gray-200 hover:border-primary hover:shadow-lg transition">
@@ -137,9 +210,50 @@ export default function Courses() {
           </div>
         </section>
 
+        {isMca && (
+          <section className="container-wide py-16 md:py-20 px-4">
+            <div className="mb-8 rounded-xl border border-blue-100 bg-blue-50 p-6 text-center">
+              <p className="text-base font-bold text-[#0a2a66]">
+                Approved by AICTE | Recognized by DTE Maharashtra | Affiliated to Savitribai Phule Pune University (SPPU)
+              </p>
+            </div>
+
+            <div className="mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Intake Information</h2>
+              <p className="mt-3 max-w-4xl text-gray-600">
+                The intake capacity for the MCA/MBA programme is approved by AICTE and applicable as per the norms of Savitribai Phule Pune University.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+              <table className="min-w-[720px] w-full text-sm">
+                <thead className="bg-[#0a2a66] text-white">
+                  <tr>
+                    {['Sr. No.', 'Programme Name', 'Academic Year', 'Approved Intake'].map((heading) => (
+                      <th key={heading} className="px-4 py-3 text-left font-bold">{heading}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="px-4 py-3 text-gray-700">1</td>
+                    <td className="px-4 py-3 font-semibold text-gray-900">{mcaIntakeInformation.programme}</td>
+                    <td className="px-4 py-3 text-gray-700">{mcaIntakeInformation.academicYear}</td>
+                    <td className="px-4 py-3 font-bold text-primary">{mcaIntakeInformation.approvedIntake}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-4 text-sm font-semibold text-gray-600">* {mcaIntakeInformation.note}</p>
+          </section>
+        )}
+
         {/* PROGRAM OVERVIEW */}
         <section className="container-wide py-16 md:py-20 px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Program Overview</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            {isMca ? 'MCA/MBA Program Overview' : `${activeProgram} Program Overview`}
+          </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -236,125 +350,203 @@ export default function Courses() {
 
             {/* Right - Semester Breakdown */}
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Semester Breakdown</h3>
-              {mbaSyllabus.map((item, index) => (
-                <div key={index} className="bg-white rounded-lg p-6 border-l-4 border-primary hover:shadow-lg transition">
-                  <h4 className="font-bold text-gray-900 mb-2">{item.semester}</h4>
-                  <p className="text-sm text-gray-600">
-                    {item.courses.map((course) => course[1]).join(', ')}
-                  </p>
-                  <p className="mt-2 text-xs font-semibold text-primary">{item.note}</p>
-                </div>
-              ))}
+              <h3 className="text-xl font-bold text-gray-900 mb-6">{isMca ? 'Academic Components' : 'Semester Breakdown'}</h3>
+              {isMca
+                ? mcaProgramSections.slice(0, 4).map((item) => (
+                    <div key={item.title} className="bg-white rounded-lg p-6 border-l-4 border-primary hover:shadow-lg transition">
+                      <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
+                      <p className="text-sm text-gray-600">{item.desc}</p>
+                    </div>
+                  ))
+                : mbaSyllabus.map((item, index) => (
+                    <div key={index} className="bg-white rounded-lg p-6 border-l-4 border-primary hover:shadow-lg transition">
+                      <h4 className="font-bold text-gray-900 mb-2">{item.semester}</h4>
+                      <p className="text-sm text-gray-600">
+                        {item.courses.map((course) => course[1]).join(', ')}
+                      </p>
+                      <p className="mt-2 text-xs font-semibold text-primary">{item.note}</p>
+                    </div>
+                  ))}
             </div>
           </div>
         </section>
 
-        {/* MBA PROGRAMME STRUCTURE */}
+        {/* PROGRAMME STRUCTURE */}
         <section className="bg-white py-16 md:py-20 px-4">
           <div className="container-wide">
             <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{activeProgram} Program Structure</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  {isMca ? 'MCA Course Structure (SPPU)' : `${activeProgram} Program Structure`}
+                </h2>
                 <p className="mt-3 max-w-3xl text-gray-600">
                   Semester-wise program type, credits and assessment structure for the {activeProgram} program.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={mbaSyllabusUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md bg-[#0a2a66] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800"
-                >
-                  View MBA Syllabus
-                </a>
-                <span className="rounded-md bg-yellow-100 px-4 py-3 text-sm font-bold text-gray-900">2024 Pattern</span>
-              </div>
-            </div>
-
-            <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-              <table className="min-w-[920px] w-full text-sm">
-                <thead className="bg-[#0a2a66] text-white">
-                  <tr>
-                    {['Type', 'Semester', 'Program Type', 'Programs', 'Credits', 'Total Credits', 'FA', 'SA', 'Total'].map((heading) => (
-                      <th key={heading} className="px-4 py-3 text-left font-bold">{heading}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {mbaProgrammeStructure.map((row, index) => (
-                    <tr key={`${row[1]}-${row[2]}-${index}`} className={row[0] === 'Total' ? 'bg-yellow-50 font-bold text-gray-900' : 'hover:bg-gray-50'}>
-                      {row.map((cell, cellIndex) => (
-                        <td key={cellIndex} className="px-4 py-3 text-gray-700">{cell}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {mbaDegreeCredits.map((row) => (
-                <div key={row[0]} className="rounded-lg border border-blue-100 bg-blue-50 p-5">
-                  <h3 className="font-bold text-gray-900">{row[0]}</h3>
-                  <p className="mt-2 text-sm text-gray-700">
-                    Programs: <span className="font-bold">{row[1]}</span> | Credits: <span className="font-bold">{row[2]}</span> | Total Marks: <span className="font-bold">{row[5]}</span>
-                  </p>
+              {!isMca && (
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={mbaSyllabusUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-md bg-[#0a2a66] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800"
+                  >
+                    View MBA Syllabus
+                  </a>
+                  <span className="rounded-md bg-yellow-100 px-4 py-3 text-sm font-bold text-gray-900">2024 Pattern</span>
                 </div>
-              ))}
+              )}
             </div>
+
+            {isMca ? (
+              <>
+                <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+                  <table className="min-w-[640px] w-full text-sm">
+                    <thead className="bg-[#0a2a66] text-white">
+                      <tr>
+                        {['Semester', 'Credits', 'UE', 'IE'].map((heading) => (
+                          <th key={heading} className="px-4 py-3 text-left font-bold">{heading}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {mcaCourseStructure.map((row) => (
+                        <tr key={row.semester} className="hover:bg-gray-50">
+                          <td className="px-4 py-3 font-semibold text-gray-900">{row.semester}</td>
+                          <td className="px-4 py-3 text-gray-700">{row.credits}</td>
+                          <td className="px-4 py-3 text-gray-700">{row.ue}</td>
+                          <td className="px-4 py-3 text-gray-700">{row.ie}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
+                  <div className="rounded-lg border border-blue-100 bg-blue-50 p-5">
+                    <h3 className="font-bold text-gray-900">Total Credits</h3>
+                    <p className="mt-2 text-3xl font-extrabold text-primary">95</p>
+                  </div>
+                  <div className="rounded-lg border border-yellow-100 bg-yellow-50 p-5">
+                    <h3 className="font-bold text-gray-900">Total Marks</h3>
+                    <p className="mt-2 text-3xl font-extrabold text-primary">2300</p>
+                  </div>
+                </div>
+
+                <div className="mt-12">
+                  <h3 className="mb-6 text-2xl font-bold text-gray-900">MBA Course Structure (SPPU)</h3>
+                  <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+                    <table className="min-w-[640px] w-full text-sm">
+                      <thead className="bg-[#0a2a66] text-white">
+                        <tr>
+                          {['Semester', 'Credits', 'UE', 'IE'].map((heading) => (
+                            <th key={heading} className="px-4 py-3 text-left font-bold">{heading}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-100">
+                        {mbaCourseStructureSummary.map((row) => (
+                          <tr key={row.semester} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 font-semibold text-gray-900">{row.semester}</td>
+                            <td className="px-4 py-3 text-gray-700">{row.credits}</td>
+                            <td className="px-4 py-3 text-gray-700">{row.ue}</td>
+                            <td className="px-4 py-3 text-gray-700">{row.ie}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="mt-8 grid gap-4 md:grid-cols-2">
+                    <div className="rounded-lg border border-blue-100 bg-blue-50 p-5">
+                      <h3 className="font-bold text-gray-900">Total Credits</h3>
+                      <p className="mt-2 text-3xl font-extrabold text-primary">104</p>
+                    </div>
+                    <div className="rounded-lg border border-yellow-100 bg-yellow-50 p-5">
+                      <h3 className="font-bold text-gray-900">Total Marks</h3>
+                      <p className="mt-2 text-3xl font-extrabold text-primary">3200</p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+                  <table className="min-w-[920px] w-full text-sm">
+                    <thead className="bg-[#0a2a66] text-white">
+                      <tr>
+                        {['Type', 'Semester', 'Program Type', 'Programs', 'Credits', 'Total Credits', 'FA', 'SA', 'Total'].map((heading) => (
+                          <th key={heading} className="px-4 py-3 text-left font-bold">{heading}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {mbaProgrammeStructure.map((row, index) => (
+                        <tr key={`${row[1]}-${row[2]}-${index}`} className={row[0] === 'Total' ? 'bg-yellow-50 font-bold text-gray-900' : 'hover:bg-gray-50'}>
+                          {row.map((cell, cellIndex) => (
+                            <td key={cellIndex} className="px-4 py-3 text-gray-700">{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
+                  {mbaDegreeCredits.map((row) => (
+                    <div key={row[0]} className="rounded-lg border border-blue-100 bg-blue-50 p-5">
+                      <h3 className="font-bold text-gray-900">{row[0]}</h3>
+                      <p className="mt-2 text-sm text-gray-700">
+                        Programs: <span className="font-bold">{row[1]}</span> | Credits: <span className="font-bold">{row[2]}</span> | Total Marks: <span className="font-bold">{row[5]}</span>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
          
         </section>
-        {/* SPECIALIZATIONS */}
-        <section className="bg-gray-50 py-16 md:py-20 px-4">
-          <div className="container-wide">
+        {isMca && (
+          <section className="bg-white py-16 md:py-20 px-4">
+            <div className="container-wide">
+              <div className="mb-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">MCA Learning & Industry Exposure</h2>
+                <p className="mx-auto mt-3 max-w-3xl text-gray-600">
+                  The MCA program combines practical learning, internship exposure, research orientation and emerging technologies for IT industry readiness.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {mcaProgramSections.slice(4).map((section) => (
+                  <div key={section.title} className="rounded-xl border border-gray-200 bg-white p-8 transition hover:border-primary hover:shadow-lg">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{section.title}</h3>
+                    <p className="text-sm leading-relaxed text-gray-700">{section.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {isMca && (
+          <section className="container-wide py-16 md:py-20 px-4">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{activeProgram} Specializations</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Career Opportunities After MCA/MBA</h2>
               <p className="mx-auto mt-3 max-w-3xl text-gray-600">
-                Select a career-focused specialization aligned with the {activeProgram} program.
+                Graduates pursue careers as Software Developers, Web Developers, Database Administrators, Network Engineers, Data Analysts, Project Managers, and IT Consultants.
               </p>
-              <a
-                href={mbaSyllabusUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex rounded-md bg-yellow-400 px-6 py-3 text-sm font-bold text-gray-900 hover:bg-yellow-300"
-              >
-                Download / View Syllabus
-              </a>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {programSpecializations.map((name, index) => {
-                const colors = [
-                  'from-blue-600 to-blue-700',
-                  'from-green-600 to-teal-700',
-                  'from-purple-600 to-pink-700',
-                  'from-orange-600 to-red-700',
-                  'from-indigo-600 to-blue-700',
-                  'from-yellow-600 to-orange-700',
-                  'from-cyan-600 to-sky-700',
-                ];
-
-                return (
-                <div key={name} className={`bg-gradient-to-br ${colors[index]} text-white rounded-xl p-8 hover:shadow-xl transition-transform hover:scale-105`}>
-                  <h3 className="text-xl font-bold mb-3">{name}</h3>
-                  <p className="text-sm leading-relaxed opacity-95">
-                    Specialized {activeProgram} learning track aligned with current industry and career pathways.
-                  </p>
-                  <Link
-                    to="/contact"
-                    className="inline-block mt-4 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg font-semibold transition text-sm"
-                  >
-                    Apply Now
-                  </Link>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {mcaCareerOpportunities.map((role) => (
+                <div key={role} className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:border-primary hover:shadow-md">
+                  <p className="font-bold text-gray-900">{role}</p>
                 </div>
-                );
-              })}
+              ))}
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* ADMISSION REQUIREMENTS */}
         <section className="container-wide py-16 md:py-20 px-4">
@@ -435,7 +627,7 @@ export default function Courses() {
                   <h3 className="text-xl font-bold">Fee Structure</h3>
                 </div>
                 <div className="p-8 text-center">
-                  <p className="text-sm font-bold uppercase tracking-wide text-gray-500">MBA Fees</p>
+                  <p className="text-sm font-bold uppercase tracking-wide text-gray-500">{activeProgram} Fees</p>
                   <p className="mt-3 text-5xl font-extrabold text-primary">Rs. 89,000/-</p>
                   <p className="mt-3 text-sm text-gray-600">Contact the admissions office for payment and scholarship guidance.</p>
                 </div>
@@ -494,20 +686,35 @@ export default function Courses() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Curriculum Highlights</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Core Programs',
-                items: ['Management Fundamentals', 'Financial Accounting', 'Business Statistics', 'Organizational Behavior', 'Marketing Essentials']
-              },
-              {
-                title: 'Advanced Programs',
-                items: ['Strategic Management', 'International Business', 'Corporate Finance', 'Digital Marketing', 'Business Analytics']
-              },
-              {
-                title: 'Experiential Learning',
-                items: ['Industry Projects', 'Case Studies', 'Seminars & Workshops', 'Industry Internship', 'Capstone Project']
-              },
-            ].map((category, index) => (
+            {(isMca
+              ? [
+                  {
+                    title: 'Core Computer Science',
+                    items: ['Programming Foundations', 'Database Systems', 'Software Engineering', 'Computer Networks', 'Operating Systems']
+                  },
+                  {
+                    title: 'Emerging Technologies',
+                    items: ['Cloud Computing', 'AI & ML', 'Cyber Security', 'Data Science', 'MERN Stack']
+                  },
+                  {
+                    title: 'Practical Learning',
+                    items: ['Hands-on Labs', 'Mini Projects', 'Research Projects', 'Seminars & Workshops', 'Full-Semester Internship']
+                  },
+                ]
+              : [
+                  {
+                    title: 'Core Programs',
+                    items: ['Management Fundamentals', 'Financial Accounting', 'Business Statistics', 'Organizational Behavior', 'Marketing Essentials']
+                  },
+                  {
+                    title: 'Advanced Programs',
+                    items: ['Strategic Management', 'International Business', 'Corporate Finance', 'Digital Marketing', 'Business Analytics']
+                  },
+                  {
+                    title: 'Experiential Learning',
+                    items: ['Industry Projects', 'Case Studies', 'Seminars & Workshops', 'Industry Internship', 'Capstone Project']
+                  },
+                ]).map((category, index) => (
               <div key={index} className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">{category.title}</h3>
                 <ul className="space-y-3">

@@ -6,6 +6,9 @@ import AdmissionPopup from '../components/AdmissionPopup';
 import { useEffect, useState, useRef } from 'react';
 import { mbaSpecializations, mbaSyllabus } from '../data/websiteContent';
 
+const mcaSyllabusUrl =
+  'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/MCA%202025%20Pattern%20(NEP%202020)%20Semester%201-4%20WEF%202025-26_28042026.pdf';
+
 // Enhanced Section component with scroll animation
 function Section({ title, children, cta, id }) {
   const sectionRef = useRef(null);
@@ -829,9 +832,14 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <Link to="/academics" className="mt-6 inline-block rounded-md bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-blue-800">
+            <a
+              href={mcaSyllabusUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block rounded-md bg-primary px-5 py-2 text-sm font-bold text-white hover:bg-blue-800"
+            >
               View Syllabus
-            </Link>
+            </a>
           </div>
         </div>
       </Section>
