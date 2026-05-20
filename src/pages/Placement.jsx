@@ -135,15 +135,26 @@ export default function Placement() {
             <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Placed Students</h2>
           </div>
 
-          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white py-6 shadow-sm">
-            <div className="placement-student-track">
-              {[...placedStudents, ...placedStudents].map(([name, company, role], index) => (
-                <div key={`${name}-${company}-${index}`} className="placement-student-card">
-                  <p className="text-lg font-bold text-gray-900">{name}</p>
-                  <p className="mt-2 text-sm font-semibold text-[#0a2a66]">{company}</p>
-                  <p className="mt-1 text-sm text-gray-600">{role}</p>
-                </div>
-              ))}
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200 text-left">
+                <thead className="bg-[#0a2a66] text-white">
+                  <tr>
+                    <th scope="col" className="px-5 py-4 text-sm font-bold uppercase tracking-wide">Student Name</th>
+                    <th scope="col" className="px-5 py-4 text-sm font-bold uppercase tracking-wide">Company</th>
+                    <th scope="col" className="px-5 py-4 text-sm font-bold uppercase tracking-wide">Designation</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100 bg-white">
+                  {placedStudents.map(([name, company, role]) => (
+                    <tr key={`${name}-${company}`} className="transition hover:bg-blue-50/60">
+                      <td className="px-5 py-4 text-sm font-semibold text-gray-900">{name}</td>
+                      <td className="px-5 py-4 text-sm font-medium text-[#0a2a66]">{company}</td>
+                      <td className="px-5 py-4 text-sm text-gray-700">{role}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -164,16 +175,14 @@ export default function Placement() {
         </section>
 
         <style>{`
-          .placement-logo-track,
-          .placement-student-track {
+          .placement-logo-track {
             display: flex;
             width: max-content;
-            gap: 18px;
-            animation: placement-scroll 55s linear infinite;
+            gap: 22px;
+            animation: placement-scroll 95s linear infinite;
           }
 
-          .placement-logo-track:hover,
-          .placement-student-track:hover {
+          .placement-logo-track:hover {
             animation-play-state: paused;
           }
 
@@ -181,13 +190,13 @@ export default function Placement() {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 170px;
-            height: 96px;
+            width: 230px;
+            height: 130px;
             flex: 0 0 auto;
             border-radius: 8px;
             border: 1px solid #e5e7eb;
             background: #ffffff;
-            padding: 14px;
+            padding: 18px;
           }
 
           .placement-logo-card img {
@@ -196,18 +205,11 @@ export default function Placement() {
             object-fit: contain;
           }
 
-          .placement-student-track {
-            animation-duration: 70s;
-          }
-
-          .placement-student-card {
-            width: 280px;
-            min-height: 142px;
-            flex: 0 0 auto;
-            border-radius: 8px;
-            border: 1px solid #e5e7eb;
-            background: #f9fafb;
-            padding: 18px;
+          @media (max-width: 640px) {
+            .placement-logo-card {
+              width: 190px;
+              height: 112px;
+            }
           }
 
           @keyframes placement-scroll {

@@ -145,8 +145,12 @@ const Navbar = () => {
               Affiliated to Savitribai Phule Pune University | Approved by AICTE, New Delhi
             </p>
             <p className="text-sm 2xl:text-base font-semibold text-[#0a2a66]">
-              NAAC Accredited "B" <span className="mx-2 text-gray-400">|</span> DTE CODE MB6197
+              NAAC Accredited "B"
             </p>
+          </div>
+
+          <div className="hidden xl:flex shrink-0 justify-end min-w-[220px]">
+            <span className="dteCodeBadge">DTE CODE MB6197</span>
           </div>
 
           <button
@@ -172,7 +176,7 @@ const Navbar = () => {
             Affiliated to Savitribai Phule Pune University | Approved by AICTE, New Delhi
           </p>
           <p className="text-xs sm:text-sm font-semibold text-[#0a2a66]">
-            NAAC Accredited "B" <span className="mx-1 text-gray-400">|</span> DTE CODE MB6197
+            NAAC Accredited "B"
           </p>
         </div>
 
@@ -340,6 +344,9 @@ const Navbar = () => {
                 </Link>
               ),
             )}
+            <div className="mobileDteCode">
+              DTE CODE MB6197
+            </div>
             <Link to="/contact" className="mobileContact">
               Apply Now
             </Link>
@@ -401,6 +408,20 @@ const Navbar = () => {
           transform: translateY(-1px);
         }
 
+        .dteCodeBadge {
+          min-height: 36px;
+          display: inline-flex;
+          align-items: center;
+          padding: 8px 12px;
+          border-radius: 6px;
+          border: 1px solid #0a2a66;
+          color: #0a2a66;
+          font-size: 13px;
+          font-weight: 900;
+          white-space: nowrap;
+          background: #eff6ff;
+        }
+
         .mobileItem,
         .mobileSubItem,
         .mobileSubSubItem,
@@ -431,6 +452,17 @@ const Navbar = () => {
           background: #facc15;
           color: #111827;
           font-weight: 800;
+        }
+
+        .mobileDteCode {
+          display: block;
+          width: 100%;
+          padding: 14px;
+          border-bottom: 1px solid #bfdbfe;
+          background: #eff6ff;
+          color: #0a2a66;
+          font-weight: 900;
+          text-align: left;
         }
 
         @keyframes marquee {
