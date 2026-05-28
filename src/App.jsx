@@ -39,6 +39,7 @@ import Research from "./pages/Research";
 import Videos from "./pages/Videos";
 import Naac from "./pages/Naac";
 import Contact from "./pages/Contact";
+import Feedback from "./pages/Feedback";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -100,6 +101,7 @@ function App() {
               <Route path="/videos" element={<Videos />} />
               <Route path="/naac" element={<Naac />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/feedback" element={<Feedback />} />
               <Route path="/login" element={<Login />} />
               <Route path="/grievance" element={<Grievance />} />
               

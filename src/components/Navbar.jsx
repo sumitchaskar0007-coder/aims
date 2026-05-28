@@ -67,6 +67,7 @@ const moreMenu = [
   { label: "Notices", path: "/notices" },
   { label: "Blog", path: "/blog" },
   { label: "Career", path: "/career" },
+  { label: "Feedback", path: "/feedback" },
   { label: "Grievance", path: "/grievance" },
 ];
 
