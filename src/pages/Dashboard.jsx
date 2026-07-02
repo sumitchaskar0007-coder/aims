@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
-import { dbApi } from '../lib/firebase';
+// import { dbApi } from '../lib/firebase';
 import { useAuth } from '../state/AuthContext';
 
 const serverBase = import.meta.env.VITE_SERVER_BASE_URL;
