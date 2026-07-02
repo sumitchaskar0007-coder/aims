@@ -1,4 +1,3 @@
-// AdmissionPopup.jsx
 import React, { useState, useEffect } from 'react';
 import './AdmissionPopup.css';
 
@@ -15,7 +14,6 @@ const AdmissionPopup = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  // Show popup when user opens website (after 3 seconds - increased for better UX)
   useEffect(() => {
     const timer = setTimeout(() => {
       const hasSubmitted = sessionStorage.getItem('admissionFormSubmitted');
@@ -76,36 +74,30 @@ const AdmissionPopup = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Set a timeout to prevent infinite loading
-    const timeoutId = setTimeout(() => {
-      if (isSubmitting) {
-        setIsSubmitting(false);
-        setSubmitStatus('error');
-        setErrors({ form: 'Request timeout. Please try again.' });
-      }
-    }, 10000); // 10 second timeout
-
     try {
-      const API_URL = process.env.NODE_ENV === 'production' 
-        ? 'https://adityainstitutemanagement.com/api/submit-admission'
-        : 'https://mba-2hqv.onrender.com/api/submit-admission';
+      const API_URL = import.meta.env.VITE_API_URL || 'https://api.adityainstitutemanagement.com/api';
+      const endpoint = `${API_URL}/submit-admission`;
 
-      const controller = new AbortController();
-      const timeoutId2 = setTimeout(() => controller.abort(), 8000); // 8 second timeout for fetch
+      console.log('📤 Submitting to:', endpoint);
+      console.log('📤 Form data:', formData);
 
-      const response = await fetch(API_URL, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
-        signal: controller.signal
+        body: JSON.stringify({
+          name: formData.name,
+          mobile: formData.mobile,
+          email: formData.email,
+          course: formData.course,
+          message: formData.message
+        }),
       });
 
-      clearTimeout(timeoutId2);
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok || response.status === 207) {
         setSubmitStatus('success');
         sessionStorage.setItem('admissionFormSubmitted', 'true');
         
@@ -125,12 +117,10 @@ const AdmissionPopup = () => {
         throw new Error(data.message || 'Submission failed');
       }
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error('❌ Submission error:', error);
       let errorMessage = 'Something went wrong. Please try again.';
       
-      if (error.name === 'AbortError') {
-        errorMessage = 'Request took too long. Please check your connection and try again.';
-      } else if (error.message === 'Failed to fetch') {
+      if (error.message === 'Failed to fetch') {
         errorMessage = 'Network error. Please check your internet connection.';
       }
       
@@ -142,7 +132,6 @@ const AdmissionPopup = () => {
         setErrors(prev => ({ ...prev, form: '' }));
       }, 5000);
     } finally {
-      clearTimeout(timeoutId);
       setIsSubmitting(false);
     }
   };
