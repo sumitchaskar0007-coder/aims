@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
 
           <p className="text-sm text-gray-300 leading-relaxed">
-            Aditya Institute of Management Studies empowering future leaders through innovation and industry-ready education.
+            Aditya Institute of Management - AIMS empowering future leaders through innovation and industry-ready education.
           </p>
         </div>
 
@@ -36,7 +36,6 @@ export default function Footer() {
             <Link to="/about" className="hover:text-yellow-400 transition">About</Link>
             <Link to="/programs" className="hover:text-yellow-400 transition">Programs</Link>
             <Link to="/placement" className="hover:text-yellow-400 transition">Placement</Link>
-            <Link to="/events" className="hover:text-yellow-400 transition">Events</Link>
             <Link to="/gallery" className="hover:text-yellow-400 transition">Gallery</Link>
           </div>
         </div>

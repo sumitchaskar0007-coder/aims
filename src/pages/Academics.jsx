@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { mbaSyllabus } from '../data/websiteContent';
+import { mbaSpecializations, mbaSyllabus } from '../data/websiteContent';
 
 export default function Academics() {
   const [expandedSections, setExpandedSections] = useState({});
@@ -117,14 +117,55 @@ export default function Academics() {
               )}
             </div>
 
-            {/* FACULTY SECTION */}
+            {/* MCA SYLLABUS SECTION */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+              <button
+                onClick={() => toggleSection('mcaSyllabus')}
+                className="w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-cyan-50 to-cyan-100 hover:from-cyan-100 hover:to-cyan-200 transition"
+              >
+                <div className="flex items-center gap-4 text-left flex-1">
+                  <h3 className="text-xl font-bold text-gray-900">MCA Program Syllabus</h3>
+                </div>
+                <span className={`text-3xl font-bold text-primary transition-transform duration-300 ${expandedSections.mcaSyllabus ? 'rotate-45' : ''}`}>
+                  +
+                </span>
+              </button>
+
+              {expandedSections.mcaSyllabus && (
+                <div className="px-8 py-8 bg-white border-t border-gray-200 space-y-6 animate-in fade-in duration-300">
+                  <p className="text-gray-700 leading-relaxed">
+                    Semester-wise MCA syllabus information is available as per Savitribai Phule Pune University guidelines.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      'Programming and problem solving',
+                      'Database management systems',
+                      'Web technologies and application development',
+                      'Software engineering and project work',
+                    ].map((item) => (
+                      <div key={item} className="rounded-lg border border-cyan-100 bg-cyan-50 p-5 font-semibold text-gray-800">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    to="/contact"
+                    className="inline-block rounded-md bg-[#0a2a66] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800"
+                  >
+                    Request MCA Syllabus
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* MBA SPECIALIZATIONS SECTION */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
               <button
                 onClick={() => toggleSection('faculty')}
                 className="w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 transition"
               >
                 <div className="flex items-center gap-4 text-left flex-1">
-                  <h3 className="text-xl font-bold text-gray-900">Faculty & Departments</h3>
+                  <h3 className="text-xl font-bold text-gray-900">MBA Specializations</h3>
                 </div>
                 <span className={`text-3xl font-bold text-primary transition-transform duration-300 ${expandedSections.faculty ? 'rotate-45' : ''}`}>
                   +
@@ -134,46 +175,29 @@ export default function Academics() {
               {expandedSections.faculty && (
                 <div className="px-8 py-8 bg-white border-t border-gray-200 space-y-6 animate-in fade-in duration-300">
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {[
-                      {
-                        dept: 'Management Studies',
-                        desc: 'Strategic management, organizational behavior, and business ethics'
-                      },
-                      {
-                        dept: 'Finance & Accounting',
-                        desc: 'Corporate finance, accounting principles, and financial analysis'
-                      },
-                      {
-                        dept: 'Marketing & Sales',
-                        desc: 'Strategic marketing, consumer behavior, and brand management'
-                      },
-                      {
-                        dept: 'Human Resources',
-                        desc: 'HR management, talent management, and employee relations'
-                      },
-                      {
-                        dept: 'Information Technology',
-                        desc: 'IT strategy, business intelligence, and data analytics'
-                      },
-                      {
-                        dept: 'Operations & Supply Chain',
-                        desc: 'Logistics, procurement, and supply chain optimization'
-                      },
-                    ].map((dept, index) => (
-                      <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-primary hover:shadow-md transition">
-                        <h4 className="font-bold text-gray-900 mb-2 text-lg">{dept.dept}</h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">{dept.desc}</p>
+                    {mbaSpecializations.map((specialization) => (
+                      <div key={specialization} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-primary hover:shadow-md transition">
+                        <h4 className="font-bold text-gray-900 mb-2 text-lg">{specialization}</h4>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          Specialized MBA learning track aligned with current industry and career pathways.
+                        </p>
+                        <Link
+                          to="/contact"
+                          className="mt-4 inline-block rounded-md bg-[#0a2a66] px-4 py-2 text-sm font-bold text-white hover:bg-blue-800"
+                        >
+                          Apply Now
+                        </Link>
                       </div>
                     ))}
                   </div>
 
                   <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6 border border-blue-200">
-                    <h4 className="font-bold text-gray-900 mb-3">About Our Faculty</h4>
+                    <h4 className="font-bold text-gray-900 mb-3">About MBA Specializations</h4>
                     <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                      AIMS faculty comprises highly qualified academicians and industry professionals with expertise in their respective domains. Our faculty members hold PhD degrees and possess extensive corporate experience.
+                      AIMS offers MBA specialization choices designed to support focused career preparation in management, finance, marketing, analytics, operations, agriculture business and healthcare sectors.
                     </p>
                     <p className="text-gray-700 text-sm leading-relaxed">
-                      Regular participation in national and international conferences ensures our curriculum remains updated with latest business practices.
+                      Students can select a learning track based on their career goals, industry interests and professional strengths.
                     </p>
                   </div>
                 </div>
@@ -479,8 +503,8 @@ export default function Academics() {
               )}
             </div>
 
-            {/* SCHOLARSHIPS SECTION */}
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+            {/* SCHOLARSHIPS SECTION REMOVED */}
+            <div className="hidden">
               <button
                 onClick={() => toggleSection('scholarships')}
                 className="w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-yellow-50 to-yellow-100 hover:from-yellow-100 hover:to-yellow-200 transition"

@@ -40,9 +40,10 @@ const aboutMenu = [
 ];
 
 const mainMenu = [
-  { label: "Courses", path: "/courses" },
- // { label: "Placement", path: "/placement" },
+  { label: "Programs", path: "/courses" },
+  { label: "Academics", path: "/academics" },
   { label: "Student", path: "/student" },
+  { label: "Placement", path: "/placement" },
   { label: "Accreditation-NAAC", path: "/naac" },
   { label: "Gallery", path: "/gallery" },
 ];
@@ -61,11 +62,8 @@ const researchMenu = [
 
 const moreMenu = [
   { label: "AICTE LOA", path: "/pdf/LOA.pdf", external: true },
-  { label: "Prospectus", path: "/pdf/mba_mca_br.pdf", external: true },
-  { label: "Academics", path: "/academics" },
+  { label: "Prospectus", path: "/pdf/prospectus.pdf", external: true },
   { label: "UDAN", path: "/udan" },
-  { label: "Programs", path: "/programs" },
-  { label: "Events", path: "/events" },
   { label: "Notices", path: "/notices" },
   { label: "Blog", path: "/blog" },
   { label: "Career", path: "/career" },
@@ -134,24 +132,30 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/assets/logo2.png"
-              alt="Aditya Institute of Management Studies"
+              alt="Aditya Institute of Management - AIMS"
               className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
             />
           </Link>
 
-          <div className="hidden lg:flex flex-col text-center flex-1 px-4">
-            <h2 className="font-bold text-[#0a2a66] text-2xl xl:text-3xl">
+          <div className="hidden xl:flex flex-col text-center flex-1 px-4">
+            <h2 className="font-extrabold text-[#0a2a66] text-2xl 2xl:text-3xl">
               Aditya Institute of Management - AIMS
             </h2>
-            <p className="text-sm xl:text-base text-gray-700">
-              Approved by AICTE New Delhi & DTE Maharashtra
+            <p className="text-sm 2xl:text-base text-gray-700">
+              Affiliated to Savitribai Phule Pune University | Approved by AICTE, New Delhi
             </p>
-            <p className="text-sm xl:text-base font-semibold text-[#0a2a66]">NAAC Accredited "B"</p>
+            <p className="text-sm 2xl:text-base font-semibold text-[#0a2a66]">
+              NAAC Accredited "B"
+            </p>
+          </div>
+
+          <div className="hidden xl:flex shrink-0 justify-end min-w-[220px]">
+            <span className="dteCodeBadge">DTE CODE MB6197</span>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden rounded-md p-2 text-gray-800 hover:bg-gray-100"
+            className="xl:hidden rounded-md p-2 text-gray-800 hover:bg-gray-100"
             aria-label="Toggle navigation menu"
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +168,19 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex flex-wrap justify-center items-center gap-2 mt-4">
+        <div className="mt-3 xl:hidden text-center">
+          <h2 className="font-extrabold text-[#0a2a66] text-base sm:text-lg">
+            Aditya Institute of Management - AIMS
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-700">
+            Affiliated to Savitribai Phule Pune University | Approved by AICTE, New Delhi
+          </p>
+          <p className="text-xs sm:text-sm font-semibold text-[#0a2a66]">
+            NAAC Accredited "B"
+          </p>
+        </div>
+
+        <div className="hidden xl:flex flex-wrap justify-center items-center gap-1.5 mt-3">
           {renderLink({ label: "Home", path: "/" })}
 
           <div className="relative">
@@ -178,13 +194,13 @@ const Navbar = () => {
               About Us
             </button>
             {openDropdown === "about" && (
-            <div className="absolute left-0 top-full z-50 mt-1 w-72 rounded-md border bg-white py-2 shadow-lg">
-              {aboutMenu.map((item) => (
-                <Link key={item.path} to={item.path} className="dropItem" onClick={() => setOpenDropdown(null)}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+              <div className="absolute left-0 top-full z-50 mt-1 w-72 rounded-md border bg-white py-2 shadow-lg">
+                {aboutMenu.map((item) => (
+                  <Link key={item.path} to={item.path} className="dropItem" onClick={() => setOpenDropdown(null)}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             )}
           </div>
 
@@ -264,11 +280,11 @@ const Navbar = () => {
               More
             </button>
             {openDropdown === "more" && (
-            <div className="absolute left-0 top-full z-50 mt-1 w-56 rounded-md border bg-white py-2 shadow-lg">
-              {moreMenu.map((item) => (
-                <span key={item.path} onClick={() => setOpenDropdown(null)}>{renderLink(item, "dropItem")}</span>
-              ))}
-            </div>
+              <div className="absolute left-0 top-full z-50 mt-1 w-56 rounded-md border bg-white py-2 shadow-lg">
+                {moreMenu.map((item) => (
+                  <span key={item.path} onClick={() => setOpenDropdown(null)}>{renderLink(item, "dropItem")}</span>
+                ))}
+              </div>
             )}
           </div>
 
@@ -285,7 +301,7 @@ const Navbar = () => {
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t max-h-[80vh] overflow-y-auto"
+            className="xl:hidden bg-white border-t max-h-[80vh] overflow-y-auto"
           >
             <Link to="/" className="mobileItem">
               Home
@@ -328,6 +344,9 @@ const Navbar = () => {
                 </Link>
               ),
             )}
+            <div className="mobileDteCode">
+              DTE CODE MB6197
+            </div>
             <Link to="/contact" className="mobileContact">
               Apply Now
             </Link>
@@ -339,13 +358,14 @@ const Navbar = () => {
         .navBtn {
           display: inline-flex;
           align-items: center;
-          min-height: 38px;
-          padding: 8px 12px;
-          font-weight: 600;
+          min-height: 36px;
+          padding: 8px 10px;
+          font-weight: 800;
           border-radius: 6px;
           color: #374151;
           transition: all 0.2s ease;
           font-size: 13px;
+          white-space: nowrap;
         }
 
         .navBtn:hover {
@@ -372,19 +392,34 @@ const Navbar = () => {
         }
 
         .contactBtn {
-          min-height: 38px;
-          padding: 8px 16px;
+          min-height: 36px;
+          padding: 8px 14px;
           border-radius: 6px;
           background: #facc15;
           color: #111827;
           font-size: 13px;
           font-weight: 800;
           transition: all 0.2s ease;
+          white-space: nowrap;
         }
 
         .contactBtn:hover {
           background: #fbbf24;
           transform: translateY(-1px);
+        }
+
+        .dteCodeBadge {
+          min-height: 36px;
+          display: inline-flex;
+          align-items: center;
+          padding: 8px 12px;
+          border-radius: 6px;
+          border: 1px solid #0a2a66;
+          color: #0a2a66;
+          font-size: 13px;
+          font-weight: 900;
+          white-space: nowrap;
+          background: #eff6ff;
         }
 
         .mobileItem,
@@ -417,6 +452,17 @@ const Navbar = () => {
           background: #facc15;
           color: #111827;
           font-weight: 800;
+        }
+
+        .mobileDteCode {
+          display: block;
+          width: 100%;
+          padding: 14px;
+          border-bottom: 1px solid #bfdbfe;
+          background: #eff6ff;
+          color: #0a2a66;
+          font-weight: 900;
+          text-align: left;
         }
 
         @keyframes marquee {

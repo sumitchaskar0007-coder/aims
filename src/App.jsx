@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -33,13 +33,13 @@ import Courses from "./pages/Courses";
 import Academics from "./pages/Academics";
 import Udan from "./pages/Udan";
 import Programs from "./pages/Programs";
-import Events from "./pages/Events";
 import Placement from "./pages/Placement";
 import Student from "./pages/Student";
 import Research from "./pages/Research";
 import Videos from "./pages/Videos";
 import Naac from "./pages/Naac";
 import Contact from "./pages/Contact";
+import Feedback from "./pages/Feedback";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -78,7 +78,7 @@ function App() {
       <ScrollAnimator />
 
       {/* Main Page */}
-      <main className="site-animated flex-1 pt-28 md:pt-32">
+      <main className="site-animated flex-1 pt-44 md:pt-52 xl:pt-52">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -95,13 +95,13 @@ function App() {
               <Route path="/academics" element={<Academics />} />
               <Route path="/udan" element={<Udan />} />
               <Route path="/programs" element={<Programs />} />
-              <Route path="/events" element={<Events />} />
               <Route path="/placement" element={<Placement />} />
               <Route path="/student" element={<Student />} />
               <Route path="/research" element={<Research />} />
               <Route path="/videos" element={<Videos />} />
               <Route path="/naac" element={<Naac />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/feedback" element={<Feedback />} />
               <Route path="/login" element={<Login />} />
               <Route path="/grievance" element={<Grievance />} />
               

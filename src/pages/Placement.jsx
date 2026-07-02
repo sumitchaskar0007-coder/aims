@@ -1,174 +1,156 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
-const placementData = [
-  { name: "Shweta Krishna Shukla", spec: "HR", company: "ABFRL", role: "Management Trainee", ctc: "10 LPA", location: "Delhi NCR" },
-  { name: "Ashlekha Jamwal", spec: "Marketing", company: "Intelipaat", role: "Business Development Executive", ctc: "9 LPA", location: "Bengaluru" },
-  { name: "Omkar Vijay Patole", spec: "Marketing", company: "Autobahn Terrago / Magicpin", role: "Business Development Associate", ctc: "9 LPA", location: "Mumbai" },
-  { name: "Tushar Dattatray Ingle", spec: "Marketing", company: "Intelipaat", role: "Business Development Executive", ctc: "9 LPA", location: "Bengaluru" },
-  { name: "Hemant Pravin Bind", spec: "Marketing", company: "IT Nova", role: "Business Development Intern", ctc: "8.2 LPA", location: "Remote" },
-  { name: "Kanchan Vijay Dhangar", spec: "Marketing", company: "Xanadu", role: "Management Trainee", ctc: "7.5 LPA", location: "PAN India" },
-  { name: "Abhishek Anand", spec: "Marketing", company: "Agumentik", role: "MT - Sales", ctc: "7 LPA", location: "India" },
-  { name: "Ananya Rahul Mishra", spec: "HR", company: "Mantra Prop", role: "Management Trainee - Sales", ctc: "7 LPA", location: "Pune" },
-  { name: "Purva Mahendra Shriramwar", spec: "Finance", company: "ANZ Bank", role: "Triage Officer", ctc: "6.5 LPA", location: "Bengaluru" },
-  { name: "Vijaykumar B Karimungi", spec: "Marketing", company: "ACC Cement", role: "Inside Sales Representative", ctc: "6.5 LPA", location: "Bengaluru" },
-  { name: "Abhishek Bhattacharya", spec: "Marketing", company: "Policy Bazaar", role: "Relationship Manager", ctc: "6.4 LPA", location: "Pune" },
-  { name: "Akash Bhagwan Wanve", spec: "Marketing", company: "Policy Bazaar", role: "Relationship Manager", ctc: "6.4 LPA", location: "Pune" },
-  { name: "Michelle Anil George", spec: "Finance", company: "ZS Associate", role: "Finance Associate", ctc: "6 LPA", location: "Pune" },
-  { name: "Tejal Gajanan Patil", spec: "Marketing", company: "PhonePe Pincode", role: "Growth Executive", ctc: "6 LPA", location: "Pune" },
-  { name: "Ajay Pravin Gujar", spec: "Marketing", company: "Suntek Energy Systems", role: "Territory Sales Executive", ctc: "5.85 LPA", location: "Pune" },
-  { name: "Akhilesh Pratyush Tailor", spec: "Finance", company: "Envision", role: "Mortgage Analyst", ctc: "5.5 LPA", location: "India" },
-  { name: "Amisha Vishwakarma", spec: "Marketing", company: "Lenskart / Intelipaat", role: "Assistant Store Manager", ctc: "5.5 LPA", location: "India" },
-  { name: "Saloni Kishor Kothari", spec: "Finance", company: "Envision", role: "Mortgage Analyst", ctc: "5.5 LPA", location: "Ahmedabad" },
-  { name: "Taha Hatim Chayyar", spec: "Finance", company: "Anand Rathi", role: "Financial Analyst", ctc: "5.5 LPA", location: "Pune" },
-  { name: "Vansh Ketankumar Lakdawala", spec: "Finance", company: "Envision", role: "Mortgage Analyst", ctc: "5.5 LPA", location: "Ahmedabad" },
-  { name: "Harsh Rajnarayan Yadav", spec: "Finance", company: "Joyalukkas", role: "Management Trainee - Finance", ctc: "5 LPA", location: "Bengaluru" },
-  { name: "Harshit Shrimali", spec: "Finance", company: "Joyalukkas", role: "Management Trainee - Finance", ctc: "5 LPA", location: "Noida" },
-  { name: "Nayan Bhaskar Chaudhari", spec: "Marketing", company: "Mehta Hi Tech", role: "Sales & Marketing Executive", ctc: "5 LPA", location: "Mumbai" },
-  { name: "Pradumanya Hariram Kapse", spec: "Marketing", company: "Stanza Living", role: "Junior Sales Associate", ctc: "5 LPA", location: "Pune" },
-  { name: "Rohan Ravindra Jaiswal", spec: "Marketing", company: "Sonkan / Magicpin", role: "Sales Officer", ctc: "5 LPA", location: "Mumbai" },
+const placementContent = [
+  {
+    title: "Placement Support",
+    description:
+      "AIMS supports students with campus placement guidance, recruiter interaction and career opportunity updates.",
+  },
+  {
+    title: "Training & Development",
+    description:
+      "Students receive training for resumes, aptitude tests, group discussions, interviews and professional communication.",
+  },
+  {
+    title: "Industry Connect",
+    description:
+      "The institute encourages corporate sessions, guest lectures, internships and industry-oriented learning exposure.",
+  },
+  {
+    title: "Career Guidance",
+    description:
+      "Faculty and placement mentors guide students to choose suitable roles based on their specialization, skills and goals.",
+  },
 ];
 
-const recruiters = [
-  "ABFRL",
-  "Intelipaat",
-  "Magicpin",
-  "ANZ",
-  "ACC",
-  "Policy Bazaar",
-  "ZS",
-  "PhonePe",
-  "Envision",
-  "Joyalukkas",
-  "Anand Rathi",
-  "Stanza Living",
-];
+const recruiterLogos = Array.from({ length: 93 }, (_, index) => index + 1)
+  .filter((number) => number !== 17)
+  .map((number) => {
+    const extension = number >= 89 ? "jpg" : "png";
+    return `/assets/placement/recruiter-${String(number).padStart(2, "0")}.${extension}`;
+  });
 
-const initials = (name) =>
-  name
-    .split(/\s+/)
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 3)
-    .toUpperCase();
+const placedStudents = [
+  ["Akshada Kambale", "Axelyne LLP", "Business Analyst"],
+  ["Alok Borlikar", "Bharatam Ventures Limited", "Credit Manager"],
+  ["Kamini Mundake", "Gallagher service centre", "Analyst"],
+  ["Mrunal Sutane", "Credence Indo mechanics", "HR & Admin Consultant"],
+  ["Rahul kokate", "Unicorn info solutions", "HR Executive"],
+  ["Vaishnavi Mali", "Iconstruct pvt Ltd", "Senior HR Executive"],
+  ["Abhinav Helaskar", "Bajaj Finserv", "Sales Manager"],
+  ["Abhishek Anand", "Agumentik", "MT- Sales"],
+  ["Abhishek Bhattacharya", "Policy Bazaar", "Relationship Manager"],
+  ["Ajay Eknath Shelke", "Motilal Oswal", "Relationship Manager"],
+  ["Akash Balasaheb Gubre", "Ekart logistics", "Operation Executive"],
+  ["Ameya Kulkarni", "Pune E stock broking", "Jr. Research Analyst"],
+  ["Amisha Vishwakarma", "Lenskart", "Asst Store Manager"],
+  ["Amol Jadhav", "Tata STRIVE", "Project Manager BMS, West- Maharashtra"],
+  ["Ananya Rahul Mishra", "Mantra Prop", "Management Trainee - Sales"],
+  ["Ashlekha jamwal", "Intelipaat", "Business Development Executive"],
+  ["CHITRA VIJAY WASEKAR", "Johnson Control", "Analyst"],
+  ["Dipak Ashokrao Manaspure", "Arque Technologies", "Territory Manager"],
+  ["Gnanamercy Selvaraj", "Epsilon Money", "Asst Manager - HR"],
+  ["Harsh Kamlesh Gupta", "Denave (Saint Gobain)", "Territory Sales Incharge"],
+  ["Harshali Pandharinath Pawar", "BPW Trailer Systems Pvt. Ltd", "HR Executive"],
+  ["Hemant Pravin Bind", "IT Nova", "Business Development Intern"],
+  ["Janvi G. Gaddam", "struct guard", "Finance & Accounting Executive"],
+  ["Kanchan Vijay Dhangar", "Xanadu", "Management Trainee"],
+  ["Lobhas Kokate", "Kiwi General Insurance", "Business development trainee - Partners"],
+  ["Michelle Anil George", "ZS Associate", "Finance Associate"],
+  ["Mr. Kartikesh Dhonde", "Varun Beverages Ltd.", "Customer Executive"],
+  ["Nandini Sharma", "State Street Corporation", "Investment Banking - Apprenticeship Program"],
+  ["Omkar Vijay Patole", "Autobahn Terrago / Magicpin", "Business Development Associate"],
+  ["Preksha Prakash Ramteke", "Policy Bazaar", "Talent Acquisition Executive"],
+  ["Purva Mahendra Shriramwar", "ANZ Bank", "Triage Officer"],
+  ["Rahul Lingappa Chavan", "PNG", "Data Analyst"],
+  ["Ravindra Sonvane", "Federal Bank Ltd.", "Assistant Officer"],
+  ["Sajal Kurariya", "Citi Bank", "Investment Banking - Apprenticeship Program"],
+  ["Saniya Pradip Saste", "Atlas Copco (Edwards India Pvt Ltd)", "HR Generalist"],
+  ["Shweta Krishna Shukla", "ABFRL", "Management Trainee"],
+  ["Sudarshan kapse", "Truzon Solar", "Territory Sales Manager"],
+  ["Tejal Gajanan Patil", "Phonepe-Pincode", "Growth Executive"],
+  ["Tushar Dattatray Ingle", "Intelipaat", "Business Development Executive"],
+  ["Vaishnavi Patil", "Intuitive.AI", "Talent Acquisition specialist"],
+  ["Vijaykumar B Karimungi", "ACC Cement", "Inside Sales Representative"],
+  ["Yatish Sahu", "SSIPCL", "FMCG Sales Executive"],
+];
 
 export default function Placement() {
-  const stats = [
-    { label: "Students Placed", value: `${placementData.length}+`, desc: "documented outcomes" },
-    { label: "Highest CTC", value: "10 LPA", desc: "ABFRL" },
-    { label: "Average CTC", value: "6.5 LPA", desc: "strong MBA/MCA outcome" },
-    { label: "Recruiters", value: "12+", desc: "across sectors" },
-  ];
-
   return (
     <>
       <Helmet>
-        <title>Placement Cell | AIMS MBA/MCA Pune</title>
+        <title>Placement | AIMS Pune</title>
         <meta
           name="description"
-          content="AIMS placement information with recruiter logo slides, placement training, student details, companies, roles and CTC."
+          content="Placement support, training, industry connect and career guidance at AIMS Pune."
         />
       </Helmet>
 
       <div className="bg-white">
         <section className="bg-[#0a2a66] text-white py-16 md:py-20 px-4">
-          <div className="container-wide">
+          <div className="container-wide text-center">
             <p className="text-sm font-bold uppercase tracking-wide text-yellow-300">Placement</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold">Career Development & Placement Cell</h1>
-            <p className="mt-4 max-w-3xl text-lg text-blue-100">
-              Training, mentoring, recruiter interaction and placement support for MBA/MCA students.
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold">Career Development & Placement</h1>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-blue-100">
+              AIMS helps students prepare for professional opportunities through training,
+              mentoring and industry interaction.
             </p>
           </div>
         </section>
 
-        <section className="bg-gray-50 py-12 px-4">
-          <div className="container-wide grid grid-cols-2 md:grid-cols-4 gap-5">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">
-                <p className="text-3xl font-bold text-primary">{stat.value}</p>
-                <p className="mt-1 font-semibold text-gray-900">{stat.label}</p>
-                <p className="text-xs text-gray-600">{stat.desc}</p>
+        <section className="container-wide py-16 md:py-20 px-4">
+          <div className="grid gap-6 md:grid-cols-2">
+            {placementContent.map((item) => (
+              <div key={item.title} className="rounded-lg border border-gray-200 bg-white p-7 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900">{item.title}</h2>
+                <p className="mt-3 leading-relaxed text-gray-700">{item.description}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="container-wide py-16">
-          <div className="grid lg:grid-cols-[1fr,420px] gap-10 items-start">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-wide text-primary">Recruiter Logo Slides</p>
-              <h2 className="mt-2 text-3xl font-bold text-gray-900">Companies connected with student placements</h2>
-              <p className="mt-4 text-gray-700 leading-relaxed">
-                The placement cell works with recruiters for internships, campus interviews,
-                skill workshops and role-specific preparation. The slide below highlights major
-                companies where students have received opportunities.
-              </p>
+        <section className="bg-gray-50 py-16 md:py-20 px-4">
+          <div className="container-wide">
+            <div className="mb-8 text-center">
+              <p className="text-sm font-bold uppercase tracking-wide text-primary">Our Recruiters</p>
+              <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Companies Hiring AIMS Talent</h2>
             </div>
-            <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900">Placement Training Includes</h3>
-              <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>Resume building and LinkedIn profile guidance</li>
-                <li>Aptitude, group discussion and interview practice</li>
-                <li>Corporate guest lectures and role awareness sessions</li>
-                <li>Internship guidance and placement readiness tracking</li>
-              </ul>
-            </div>
-          </div>
 
-          <div className="mt-10 overflow-hidden rounded-lg border border-gray-200 bg-white py-6 shadow-sm">
-            <div className="placement-marquee flex gap-5">
-              {[...recruiters, ...recruiters].map((company, index) => (
-                <div
-                  key={`${company}-${index}`}
-                  className="flex h-24 min-w-48 flex-col items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-5"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-md bg-[#0a2a66] text-sm font-black text-white">
-                    {initials(company)}
+            <div className="overflow-hidden rounded-lg border border-gray-200 bg-white py-6 shadow-sm">
+              <div className="placement-logo-track">
+                {[...recruiterLogos, ...recruiterLogos].map((logo, index) => (
+                  <div key={`${logo}-${index}`} className="placement-logo-card">
+                    <img src={logo} alt="AIMS recruiter logo" loading="lazy" />
                   </div>
-                  <p className="mt-2 text-center text-sm font-bold text-gray-800">{company}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-gray-50 py-16 px-4">
-          <div className="container-wide">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-              <div>
-                <p className="text-sm font-bold uppercase tracking-wide text-primary">Placed Students</p>
-                <h2 className="mt-2 text-3xl font-bold text-gray-900">Who placed where</h2>
-              </div>
-              <p className="max-w-2xl text-sm text-gray-600">
-                Details include specialization, company, designation, package and location.
-              </p>
-            </div>
+        <section className="container-wide py-16 md:py-20 px-4">
+          <div className="mb-8 text-center">
+            <p className="text-sm font-bold uppercase tracking-wide text-primary">Proud Alumni</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Placed Students</h2>
+          </div>
 
-            <div className="mt-8 overflow-x-auto rounded-lg border border-gray-200 bg-white shadow-sm">
-              <table className="w-full min-w-[900px] border-collapse text-sm">
-                <thead className="bg-primary text-white">
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200 text-left">
+                <thead className="bg-[#0a2a66] text-white">
                   <tr>
-                    <th className="px-4 py-3 text-left">Student</th>
-                    <th className="px-4 py-3 text-left">Specialization</th>
-                    <th className="px-4 py-3 text-left">Company</th>
-                    <th className="px-4 py-3 text-left">Designation</th>
-                    <th className="px-4 py-3 text-left">Location</th>
-                    <th className="px-4 py-3 text-right">CTC</th>
+                    <th scope="col" className="px-5 py-4 text-sm font-bold uppercase tracking-wide">Student Name</th>
+                    <th scope="col" className="px-5 py-4 text-sm font-bold uppercase tracking-wide">Company</th>
+                    <th scope="col" className="px-5 py-4 text-sm font-bold uppercase tracking-wide">Designation</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {placementData.map((student) => (
-                    <tr key={`${student.name}-${student.company}`} className="hover:bg-blue-50">
-                      <td className="px-4 py-3 font-bold text-gray-900">{student.name}</td>
-                      <td className="px-4 py-3">
-                        <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
-                          {student.spec}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-gray-700">{student.company}</td>
-                      <td className="px-4 py-3 text-gray-700">{student.role}</td>
-                      <td className="px-4 py-3 text-gray-700">{student.location}</td>
-                      <td className="px-4 py-3 text-right font-bold text-green-700">{student.ctc}</td>
+                <tbody className="divide-y divide-gray-100 bg-white">
+                  {placedStudents.map(([name, company, role]) => (
+                    <tr key={`${name}-${company}`} className="transition hover:bg-blue-50/60">
+                      <td className="px-5 py-4 text-sm font-semibold text-gray-900">{name}</td>
+                      <td className="px-5 py-4 text-sm font-medium text-[#0a2a66]">{company}</td>
+                      <td className="px-5 py-4 text-sm text-gray-700">{role}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -177,25 +159,60 @@ export default function Placement() {
           </div>
         </section>
 
-        <section className="container-wide py-16">
-          <div className="rounded-lg bg-[#0a2a66] p-8 md:p-10 text-white flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h2 className="text-3xl font-bold">Prepare for your career with AIMS</h2>
-              <p className="mt-2 text-blue-100">Connect with admissions to learn about MBA/MCA placements and training.</p>
-            </div>
-            <Link to="/contact" className="rounded-md bg-yellow-400 px-6 py-3 font-bold text-gray-900 hover:bg-yellow-300">
-              Contact Placement Cell
+        <section className="container-wide pb-16 md:pb-20 px-4">
+          <div className="rounded-lg bg-gray-50 p-8 text-center">
+            <h2 className="text-3xl font-bold text-gray-900">Connect With Placement Cell</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-700">
+              For placement related details, students and recruiters can contact the college office.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-6 inline-block rounded-md bg-[#0a2a66] px-7 py-3 font-bold text-white hover:bg-blue-800"
+            >
+              Contact Us
             </Link>
           </div>
         </section>
 
         <style>{`
-          .placement-marquee {
+          .placement-logo-track {
+            display: flex;
             width: max-content;
-            animation: placementSlide 28s linear infinite;
+            gap: 22px;
+            animation: placement-scroll 95s linear infinite;
           }
 
-          @keyframes placementSlide {
+          .placement-logo-track:hover {
+            animation-play-state: paused;
+          }
+
+          .placement-logo-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 230px;
+            height: 130px;
+            flex: 0 0 auto;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+            padding: 18px;
+          }
+
+          .placement-logo-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+          }
+
+          @media (max-width: 640px) {
+            .placement-logo-card {
+              width: 190px;
+              height: 112px;
+            }
+          }
+
+          @keyframes placement-scroll {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
           }

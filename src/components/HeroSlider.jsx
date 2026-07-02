@@ -6,7 +6,7 @@ const slides = [
   {
     title: 'Future-Ready MBA & MCA Programs',
     subtitle: 'Industry-focused curriculum with live projects and placements.',
-    cta: { label: 'Explore Courses →', href: '/courses' },
+    cta: { label: 'Explore Programs →', href: '/courses' },
     image: '/assets/bg1.png',
     color: 'from-blue-600 to-purple-600',
   },
@@ -20,7 +20,7 @@ const slides = [
   {
     title: 'Vibrant Campus Life',
     subtitle: 'Cultural fests, sports, clubs, and leadership programs.',
-    cta: { label: 'See Events →', href: '/events' },
+    cta: { label: 'View Gallery →', href: '/gallery' },
     image: '/assets/bg2.png',
     color: 'from-pink-600 to-rose-600',
   },

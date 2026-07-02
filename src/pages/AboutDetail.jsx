@@ -27,8 +27,7 @@ const aboutPages = {
     menu: "Vision & Mission",
     title: "Vision, Mission and Institutional Goals",
     eyebrow: "Direction",
-    image: "/assets/mba1.jpeg",
-    alt: "AIMS MBA learning environment",
+    hideHeroImage: true,
     intro:
       "AIMS aims to develop ethical, employable and confident management professionals through industry-linked learning, mentoring, practical exposure and continuous improvement.",
     highlights: ["Employability", "Ethical leadership", "Practical learning", "Global outlook"],
@@ -67,8 +66,8 @@ const aboutPages = {
       "His multidisciplinary academic background in commerce, law, management and humanities gives him a broad understanding of modern education. This perspective helps AIMS connect classroom learning with practical development, ethical values and social awareness.",
       "Under his guidance, the institute continues to strengthen its academic systems, mentoring practices, placement support and student development initiatives. His message to every student is simple and powerful: knowledge becomes meaningful only when it is supported by discipline, courage and service.",
     ],
-    messageTitle: "Secretary's Message",
-    messageGreeting: "Dear Researchers,",
+    messageTitle: "Founder Message",
+    messageGreeting: "Dear Students,",
     messageParagraphs: [
       "It is a matter of great pleasure and pride that the MBA and PGDM programs at Aditya Institute of Management - AIMS, Prin. Dr. Sudhakarrao Jadhavar Educational Campus, Manaji Nagar, Narhe, Pune, are recognized among the prestigious institutes in Pune city.",
       "I implore all members of the faculty to follow a path of ethically oriented and socially relevant education so that the institute can play a pivotal role in creating and disseminating knowledge, educating a highly skilled workforce for technological and intellectual leadership, and enhancing the competitiveness of society in the emerging knowledge economy.",
@@ -120,7 +119,7 @@ const aboutPages = {
       "He believes that management and computer application students need more than classroom knowledge. They need communication skills, decision-making ability, ethical judgment, leadership habits and the confidence to work in real professional environments.",
     ],
     messageTitle: "President's Message",
-    messageGreeting: "Dear Researchers,",
+    messageGreeting: "Dear Students,",
     messageParagraphs: [
       "It is my pride, pleasure and privilege to welcome you to our renowned educational management institute. Efficient business administration has become a norm of today's competitive world and has touched and transformed our lives across society and industry.",
       "To fulfill the dream of making our country a superpower, we need quality managers and new entrepreneurs. Aditya Educational Foundation has recognized and addressed this need through AIMS by creating knowledgeable and empowered leaders for the corporate world.",
@@ -328,13 +327,12 @@ function LeadershipProfile({ page }) {
                 </div>
               </div>
 
-              <div className="relative mx-auto w-full max-w-md">
-                <div className="absolute -right-8 -top-8 h-72 w-72 rounded-full border-4 border-[#f25a1d]"></div>
+              <div className="relative mx-auto w-full max-w-sm">
                 <div className="relative border-4 border-[#f25a1d] bg-white p-4 shadow-xl">
                   <img
                     src={page.image}
                     alt={page.alt}
-                    className="h-96 w-full bg-gray-50 object-contain p-3"
+                    className="aspect-square w-full bg-gray-50 object-contain object-top p-2"
                     loading="lazy"
                   />
                 </div>
@@ -442,7 +440,7 @@ export default function AboutDetail() {
       <div className="bg-white overflow-hidden">
         {/* Hero Section with Animation */}
         <AnimatedSection className="bg-gradient-to-r from-[#0a2a66] to-blue-800 text-white">
-          <div className="container-wide grid lg:grid-cols-2 gap-10 items-center py-16 md:py-20">
+          <div className={`container-wide grid gap-10 items-center py-16 md:py-20 ${page.hideHeroImage ? "" : "lg:grid-cols-2"}`}>
             <div>
               <p className="text-sm font-bold uppercase tracking-wide text-yellow-300 animate-fadeInUp">
                 {page.eyebrow}
@@ -454,23 +452,25 @@ export default function AboutDetail() {
                 {page.intro}
               </p>
             </div>
-            <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm transform transition-transform duration-500 hover:scale-105">
-              <img
-                src={getValidImageSrc(page.image, "hero")}
-                alt={page.alt}
-                className="h-80 w-full rounded-md object-cover bg-white shadow-lg"
-                onError={() => handleImageError("hero")}
-                loading="lazy"
-              />
-              {page.designation && (
-                <div className="mt-4 rounded-md bg-white p-4 text-center text-gray-900 shadow-md">
-                  <p className="text-sm font-bold text-primary uppercase tracking-wide">{page.designation}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-gray-700 font-medium">
-                    {page.degrees}
-                  </p>
-                </div>
-              )}
-            </div>
+            {!page.hideHeroImage && (
+              <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm transform transition-transform duration-500 hover:scale-105">
+                <img
+                  src={getValidImageSrc(page.image, "hero")}
+                  alt={page.alt}
+                  className="h-80 w-full rounded-md object-cover bg-white shadow-lg"
+                  onError={() => handleImageError("hero")}
+                  loading="lazy"
+                />
+                {page.designation && (
+                  <div className="mt-4 rounded-md bg-white p-4 text-center text-gray-900 shadow-md">
+                    <p className="text-sm font-bold text-primary uppercase tracking-wide">{page.designation}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-gray-700 font-medium">
+                      {page.degrees}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </AnimatedSection>
 
