@@ -575,7 +575,7 @@ function HomeAboutPreview() {
           <p className="text-sm font-bold uppercase tracking-wide text-orange-400">About Us</p>
           <div className="mt-3 h-0.5 w-20 bg-orange-500"></div>
           <h2 className="mt-8 text-3xl font-extrabold md:text-4xl">
-            Aditya Institute of Management Studies, Pune
+            Aditya Institute of Management, Pune
           </h2>
           <p className="mt-6 text-base leading-8 text-blue-50 md:text-lg">
             AIMS is a management institute in Narhe, Pune, guided by the Jadhavar Group's
