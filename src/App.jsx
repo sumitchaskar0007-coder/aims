@@ -44,7 +44,6 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AnnouncementTicker from "./components/AnnouncementTicker";
 import Grievance from "./pages/Grievance";
 import ScrollAnimator from "./components/ScrollAnimator";
 
@@ -70,15 +69,12 @@ function App() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Announcement Scroller */}
-      <AnnouncementTicker />
-
       {/* ScrollToTop component inside Router context */}
       <ScrollToTop />
       <ScrollAnimator />
 
       {/* Main Page */}
-      <main className="site-animated flex-1 pt-44 md:pt-52 xl:pt-52">
+      <main className="site-animated flex-1">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

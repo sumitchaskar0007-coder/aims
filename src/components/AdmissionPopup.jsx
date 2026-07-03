@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './AdmissionPopup.css';
 
-const AdmissionPopup = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const AdmissionPopup = ({ embedded = false }) => {
+  const [isOpen, setIsOpen] = useState(embedded);
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -15,6 +15,8 @@ const AdmissionPopup = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
+    if (embedded) return undefined;
+
     const timer = setTimeout(() => {
       const hasSubmitted = sessionStorage.getItem('admissionFormSubmitted');
       if (!hasSubmitted) {
@@ -23,7 +25,7 @@ const AdmissionPopup = () => {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [embedded]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -109,10 +111,12 @@ const AdmissionPopup = () => {
           message: ''
         });
         
-        setTimeout(() => {
-          setIsOpen(false);
-          setSubmitStatus(null);
-        }, 3000);
+        if (!embedded) {
+          setTimeout(() => {
+            setIsOpen(false);
+            setSubmitStatus(null);
+          }, 3000);
+        }
       } else {
         throw new Error(data.message || 'Submission failed');
       }
@@ -143,9 +147,9 @@ const AdmissionPopup = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="popup-overlay">
-      <div className="popup-container">
-        <button className="popup-close" onClick={handleClose}>×</button>
+    <div className={embedded ? "admission-embedded" : "popup-overlay"}>
+      <div className={`popup-container ${embedded ? "popup-container-embedded" : ""}`}>
+        {!embedded && <button className="popup-close" onClick={handleClose}>×</button>}
         
         <div className="popup-header">
           <h2>Admission Enquiry</h2>

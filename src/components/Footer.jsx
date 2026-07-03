@@ -48,9 +48,9 @@ export default function Footer() {
               <FiMapPin className="mt-1 flex-shrink-0" />
               <span>AIMS Campus, Pune, Maharashtra, India</span>
             </a>
-            <a href="tel:+919356393629" className="flex items-center gap-2 hover:text-yellow-400 transition">
+            <a href="tel:+919356399629" className="flex items-center gap-2 hover:text-yellow-400 transition">
               <FiPhone className="flex-shrink-0" />
-              <span>+91-9356393629</span>
+              <span>+91-9356399629</span>
             </a>
             <a href="mailto:adityainstitute.admission@gmail.com" className="flex items-center gap-2 hover:text-yellow-400 transition">
               <FiMail className="flex-shrink-0" />

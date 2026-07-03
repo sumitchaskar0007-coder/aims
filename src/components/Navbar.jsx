@@ -124,7 +124,7 @@ const Navbar = () => {
     );
 
   return (
-    <nav ref={navRef} className="fixed top-0 w-full z-50 bg-white shadow-md border-b">
+    <nav ref={navRef} className="sticky top-0 w-full z-50 bg-white shadow-md border-b">
       <NewsTicker />
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3">

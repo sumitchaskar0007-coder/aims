@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { dbApi } from "../lib/firebase";
+import AdmissionPopup from "../components/AdmissionPopup";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -59,7 +60,7 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { title: "Phone", value: "+91-9356393629", href: "tel:+919356393629" },
+    { title: "Phone", value: "+91-9356399629", href: "tel:+919356399629" },
     { title: "Email", value: "adityainstitute.admission@gmail.com", href: "mailto:adityainstitute.admission@gmail.com" },
     { title: "Campus", value: "Narhe, Pune, Maharashtra - 411041" },
   ];
@@ -87,7 +88,11 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-2xl">
+            <div>
+              <AdmissionPopup embedded />
+            </div>
+
+            <div className="hidden" aria-hidden="true">
               <h2 className="text-2xl font-bold text-gray-900">Admission Enquiry</h2>
               <p className="mt-1 text-sm text-gray-600">Fill the form to get started</p>
 
