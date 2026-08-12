@@ -10,6 +10,7 @@ export default function Udan() {
     { id: 6, title: "UDAN 6", url: "/pdf/Udan6.pdf" },
     { id: 7, title: "UDAN 7", url: "/pdf/Udan7.pdf" },
     { id: 8, title: "UDAN 8", url: "/pdf/Udan8.pdf" },
+    { id: 9, title: "UDAN 9", url: "/pdf/Udan9.pdf" },
   ];
 
   return (
